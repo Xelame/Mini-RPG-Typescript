@@ -78,15 +78,40 @@ export class Character {
         this.isDead = false;
     }
 
-}
-
-class Guerrier extends Character{
 
 }
+ 
 class Mage extends Character{
-    
+    /**
+     * Spécial attaque mana
+     */
+    mana : number;
+    /**
+     * Spécial attaque qui ignore la défense
+     */
+    magicAttack : number;
+    constructor( name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number, mana : number, magicAttack : number) {
+        super(name,physicalAttack, physicalArmor,speed,maxHealth)
+        this.mana = mana;
+        this.magicAttack = magicAttack;
+    } 
+    specialAttack(target : Character) : void {
+        if (this.mana) {
+            target.currentHealth = Math.max( this.currentHealth - this.magicAttack, 0)
+            this.mana--
+        }
+    }
 }
 class Paladin extends Character{
+    constructor(name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number) {
+        super(name,physicalAttack,physicalArmor,speed,maxHealth)
+    }
+    holyAttack(targets : Character[]) : void {
+        for (let i = 0; i < targets.length; i++) {
+            this.currentHealth = Math.max((this.physicalAttack - targets[i].physicalArmor) * 0.4, 0)
+            Math.round(this.currentHealth)
+        }
+    }
     
 }
 class Barbare extends Character{
