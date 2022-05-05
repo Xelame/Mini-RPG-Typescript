@@ -1,7 +1,7 @@
 import {Contact} from "./hero.ts";
 
-export class ContactManager {
-    contactList : Contact[] = [];
+export class Menu {
+    team : string[] = []
     launch() {
         let choice = 0;
         while(choice != 3){
@@ -40,13 +40,49 @@ export class ContactManager {
     }
 
     selectHeroes(){
-        if(this.contactList.length == 0){
-            console.log("Aucun contact enregistré.");
-            return;
-        }
-        console.log("Liste de contacts:");
-        for(let i = 0; i < this.contactList.length; i++){
-            console.log(`\t ${i + 1}. ${this.contactList[i].toString()}`);
+        let countTeam = 0
+        let menuTeam = 0;
+        while(countTeam != 3){
+            menuTeam = this.menu("Choissisez un héro !",[
+                "Guerrier",
+                "Mage",
+                "Paladin",
+                "Barbare",
+                "Prêtre",
+                "Voleur",
+            ]);
+            switch(menuTeam){
+                case 1 : 
+                    this.team.push("Guerrier")
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+                case 2 : 
+                    this.team.push("Mage");
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+                case 3 : 
+                    this.team.push("Paladin");
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+                case 4 : 
+                    this.team.push("Barbare");
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+                case 5 : 
+                    this.team.push("Prêtre");
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+                case 6 : 
+                    this.team.push("Voleur");
+                    console.log(this.team);
+                    countTeam++;
+                    break;
+            }
         }
     }
     regles(){
