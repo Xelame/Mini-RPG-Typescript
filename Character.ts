@@ -79,3 +79,22 @@ export class Character {
     }
 
 }
+
+class Guerrier extends Character{
+
+}
+class Mage extends Character{
+    
+}
+class Paladin extends Character{
+    
+}
+class Barbare extends Character{
+    
+}
+class Prêtre extends Character{
+    
+}
+class Voleur extends Character{
+    
+}
