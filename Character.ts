@@ -84,7 +84,6 @@ class Guerrier extends Character{
 
 }
 class Mage extends Character{
-    
 }
 class Paladin extends Character{
     
@@ -96,5 +95,11 @@ class Prêtre extends Character{
     
 }
 class Voleur extends Character{
+    
+}
+class Monstre extends Character{
+    
+}
+class Boss extends Character{
     
 }
