@@ -1,9 +1,7 @@
-import { Character } from './Character.ts';
-import { Barbare } from './Character.ts';
-import { Mage } from './Character.ts';
-import { Pretre } from './Character.ts';
-import { Paladin } from './Character.ts';
-import { Voleur } from './Character.ts';
+import { Character } from "./Character/Character.ts";
+import { Barbare } from "./Character/Barbarian.ts";
+import { Mage } from "./Character/Mage.ts";
+import { Pretre } from "./Character/Priest.ts";
 export class Menu {
     team : Character[] = []
     launch() {
@@ -62,32 +60,28 @@ export class Menu {
                     countTeam++;
                     break;
                 case 2 : 
-                    this.team.push(new Mage("Mage",20,20,8,150,100,20));
-                    console.log(this.team);
+                    this.team.push(new Mage("Mage",20,20,8,150,100));
                     countTeam++;
                     break;
                 case 3 : 
-                    this.team.push(new Paladin("Paladin",20,20,8,150));
-                    console.log(this.team);
-                    countTeam++;
+                   // this.team.push(new Paladin("Paladin",20,20,8,150));
+                    //countTeam++;
                     break;
                 case 4 : 
                     this.team.push(new Barbare("Barbare",20,20,8,150));
-                    console.log(this.team);
                     countTeam++;
                     break;
                 case 5 : 
                     this.team.push(new Pretre("Pretre",20,20,8,150));
-                    console.log(this.team);
                     countTeam++;
                     break;
                 case 6 : 
-                    this.team.push(new Voleur("Voleur",20,20,8,150));
-                    console.log(this.team);
-                    countTeam++;
+                    //this.team.push(new Voleur("Voleur",20,20,8,150));
+                    //countTeam++;
                     break;
             }
         }
+        
     }
     regles(){
         console.log("Le joueur pourra choisir un groupe de trois aventuriers parmi 6 classes possibles : Guerrier , Mage , Paladin , Barbare , Prêtre , Voleur. \nChacun de ces personnages aura des caractéristiques et des actions disponibles différentes. Une fois le groupe choisi, l'équipe pourra partir en exploration.\nLe but du jeu est de parcourir 5 salles dans un donjon et qu'au moins un des aventuriers soit encore vivant à la fin de l'exploration.\n")
