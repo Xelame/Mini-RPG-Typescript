@@ -1,26 +1,22 @@
 import { Character } from "./Character/Character.ts";
+import { Menu } from "./menu.ts"
 
 export class Fight{
     allyTeam : Character[];
     enemyTeam : Character[];
     allCharacter : Character[];
-    turn : Character;
 
-    constructor(allyTeam : Character[], enemyTeam : Character[], turn : Character, allCharacter : Character[],){
+    constructor(allyTeam : Character[], enemyTeam : Character[], allCharacter : Character[]){
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
-        this.allCharacter = allCharacter;
-        this.turn = turn;
+        this.allCharacter = this.allyTeam.concat(this.enemyTeam)
+    
     }
     whichOrder(){
-        let speedArray = []
-        this.allCharacter = this.allyTeam.concat(this.enemyTeam)
-    for(let i = 0 ; i < this.allCharacter.length ; i++){
-        if (this.allCharacter[i].currentHealth != 0) {
-       speedArray.push(this.allCharacter[i].speed)
-        }
-    }
-    let speed = speedArray.sort((a, b) => b - a)
+        const  allCharacterOrder = this.allCharacter.filter((c) => c.currentHealth > 0 );
+        allCharacterOrder.sort((a,b) => b.speed - a.speed)
+        console.log(allCharacterOrder)
+        return allCharacterOrder
     }
     isFinished(){
         let alive = []

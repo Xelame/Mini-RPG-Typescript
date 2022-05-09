@@ -1,7 +1,7 @@
 import { Character } from "./Character.ts";
 
 
-export class Barbare extends Character {
+export class Barbarian extends Character {
     /**
      * Constructeur de notre classe Barbare
      * @param name Nom du monstre
@@ -36,3 +36,4 @@ export class Barbare extends Character {
         }
     }
 }
+export let barbarian = new Barbarian("Barbarian",75,20,5,100)

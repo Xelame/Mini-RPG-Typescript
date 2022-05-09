@@ -1,4 +1,5 @@
 import { Menu } from "./menu.ts";
+import { Fight } from "./Fight.ts"
 
-const manager = new Menu();
-manager.launch();
+const start = new Menu();
+start.launch();
