@@ -1,7 +1,11 @@
-import {Contact} from "./hero.ts";
-
+import { Character } from './Character.ts';
+import { Barbare } from './Character.ts';
+import { Mage } from './Character.ts';
+import { Pretre } from './Character.ts';
+import { Paladin } from './Character.ts';
+import { Voleur } from './Character.ts';
 export class Menu {
-    team : string[] = []
+    team : Character[] = []
     launch() {
         let choice = 0;
         while(choice != 3){
@@ -53,32 +57,32 @@ export class Menu {
             ]);
             switch(menuTeam){
                 case 1 : 
-                    this.team.push("Guerrier")
+                    this.team.push(new Character("Guerrier",20,20,8,150));
                     console.log(this.team);
                     countTeam++;
                     break;
                 case 2 : 
-                    this.team.push("Mage");
+                    this.team.push(new Mage("Mage",20,20,8,150,100,20));
                     console.log(this.team);
                     countTeam++;
                     break;
                 case 3 : 
-                    this.team.push("Paladin");
+                    this.team.push(new Paladin("Paladin",20,20,8,150));
                     console.log(this.team);
                     countTeam++;
                     break;
                 case 4 : 
-                    this.team.push("Barbare");
+                    this.team.push(new Barbare("Barbare",20,20,8,150));
                     console.log(this.team);
                     countTeam++;
                     break;
                 case 5 : 
-                    this.team.push("Prêtre");
+                    this.team.push(new Pretre("Pretre",20,20,8,150));
                     console.log(this.team);
                     countTeam++;
                     break;
                 case 6 : 
-                    this.team.push("Voleur");
+                    this.team.push(new Voleur("Voleur",20,20,8,150));
                     console.log(this.team);
                     countTeam++;
                     break;
