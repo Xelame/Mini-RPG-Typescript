@@ -10,5 +10,4 @@ class Paladin extends Character{
             Math.round(this.currentHealth)
         }
     }
-    
 }
