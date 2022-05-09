@@ -4,7 +4,7 @@ import { Item } from "./Item.ts";
 
 export class HalfStar extends Item {
 
-    private readonly emoji: string = '🌟';
+    public readonly emoji: string = '🌟';
 
     constructor() {
         super(100);
