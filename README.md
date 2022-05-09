@@ -44,13 +44,10 @@ It afford the user to select his own team of 3 heroes and fight through an littl
 
 ### Built With
 
- [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://developer.mozilla.org/fr/docs/Web/JavaScript)<br>
- [![Javascript](https://badges.frapsoft.com/javascript/code/javascript.svg?v=101)](https://www.typescriptlang.org/)
-
-
+ [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://www.typescriptlang.org/)<br>
+ [![Javascript](https://badges.frapsoft.com/javascript/code/javascript.svg?v=101)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+(https://www.typescriptlang.org/)
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
