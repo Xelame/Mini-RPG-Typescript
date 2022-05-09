@@ -43,8 +43,8 @@ It afford the user to select his own team of 3 heroes and fight through an littl
 
 ### Built With
 
-* [![made-with-Javascript](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
-* [![made-with-Typescript](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.typescriptlang.org/)
+* [![Javascript](https://badges.frapsoft.com/javascript/code/javascript-175x39.png?v=101)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+* [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript-175x39.png?v=101)](https://www.typescriptlang.org/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
