@@ -85,20 +85,24 @@ class Mage extends Character{
     /**
      * Spécial attaque mana
      */
-    mana : number;
+    currentMana : number;
+    maxMana : number ;
+     
     /**
      * Spécial attaque qui ignore la défense
      */
     magicAttack : number;
-    constructor( name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number, mana : number, magicAttack : number) {
+
+    constructor( name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number, maxMana : number, magicAttack : number) {
         super(name,physicalAttack, physicalArmor,speed,maxHealth)
-        this.mana = mana;
+        this.currentMana = maxMana;
+        this.maxMana = maxMana
         this.magicAttack = magicAttack;
     } 
     specialAttack(target : Character) : void {
-        if (this.mana) {
+        if (this.currentMana) {
             target.currentHealth = Math.max( this.currentHealth - this.magicAttack, 0)
-            this.mana--
+            this.currentMana--
         }
     }
 }
@@ -121,5 +125,8 @@ class Prêtre extends Character{
     
 }
 class Voleur extends Character{
-    
+
+    constructor(name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number) {
+        super(name,physicalAttack,physicalArmor,speed,maxHealth)
+    }
 }
