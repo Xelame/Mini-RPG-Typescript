@@ -31,8 +31,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The RPG Project is a simple turn per turn game in command line , playable in the terminal!
-It afford the user to select his own team of 3 heroes and fight through an little dungeon to maybe defeat the cruel Dragon and rob his precious treasure !
+The RPG Project is a simple turn per turn game in command line , playable in the terminal!<br>
+It afford the user to select his own team of 3 heroes and fight through an little dungeon. <br>
+
 
 
 
@@ -43,8 +44,8 @@ It afford the user to select his own team of 3 heroes and fight through an littl
 
 ### Built With
 
-* [![Javascript](https://badges.frapsoft.com/javascript/code/javascript-175x39.png?v=101)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
-* [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript-175x39.png?v=101)](https://www.typescriptlang.org/)
+ [![Javascript](https://badges.frapsoft.com/javascript/code/javascript-150x33.png?v=101)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+ [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript-150x33.png?v=101)](https://www.typescriptlang.org/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
