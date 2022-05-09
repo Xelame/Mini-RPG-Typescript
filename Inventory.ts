@@ -1,5 +1,3 @@
-import { Character } from "./Character/Character.ts";
-import ManaUser from "./Character/iManaUser.ts";
 import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
@@ -15,9 +13,14 @@ export class Inventory {
         return Inventory._instance;
     }
 
-    public items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
-
     private constructor() {}
+
+    private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
+
+
+    public get items() : Array<string> {
+        return this._items.map(item => item.emoji);
+    }
 }
 
 console.log(Inventory.instance.items);
