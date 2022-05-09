@@ -92,7 +92,6 @@ export class Character {
             console.log("Nothing append");
         }
     }
-<<<<<<< HEAD:Character.ts
 
 
 }
@@ -133,18 +132,4 @@ class Paladin extends Character{
         }
     }
     
-}
-class Barbare extends Character{
-    
-}
-class Prêtre extends Character{
-    
-}
-class Voleur extends Character{
-
-    constructor(name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number) {
-        super(name,physicalAttack,physicalArmor,speed,maxHealth)
-    }
-=======
->>>>>>> 162a87dad286eec56e8520441f9a720c9dc8818a:Character/Character.ts
 }

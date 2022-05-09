@@ -17,7 +17,9 @@ export class Inventory {
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
 
     private constructor() {}
-
+    public addItems(item : Item) {
+        this._items.push(item)
+    }
     public get items() {
         return this._items.map(item => item.emoji);
     }
