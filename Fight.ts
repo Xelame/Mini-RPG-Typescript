@@ -4,13 +4,11 @@ export class Fight{
     allyTeam : Character[];
     enemyTeam : Character[];
     allCharacter : Character[];
-    turn : Character;
 
-    constructor(allyTeam : Character[], enemyTeam : Character[], turn : Character, allCharacter : Character[],){
+    constructor(allyTeam : Character[], enemyTeam : Character[], allCharacter : Character[]){
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
         this.allCharacter = allCharacter;
-        this.turn = turn;
     }
     whichOrder(){
         let speedArray = []

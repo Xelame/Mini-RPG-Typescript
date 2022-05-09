@@ -2,28 +2,25 @@ import { Character } from "./Character/Character.ts";
 import { Barbare } from "./Character/Barbarian.ts";
 import { Mage } from "./Character/Mage.ts";
 import { Pretre } from "./Character/Priest.ts";
+import { GameManager } from "./main.ts";
+
 export class Menu {
-    team : Character[] = []
-    launch() {
-        let choice = 0;
-        while(choice != 3){
-            choice = this.menu("Menu Principal",[
-                "Jouer",
-                "Règles",
-                "Quitter"
-            ]);
-            switch(choice){
-                case 1 : 
-                    this.selectHeroes();
-                    break;
-                case 2 :
-                    this.regles();
-                    break;
-                default :
-                    console.log("Au revoir!");
-                    return;
-            }
-        }
+
+    question: string;
+    possibilities: string[];
+
+    constructor(question : string, possibilities : string[]) {
+        this.question = question;
+        this.possibilities = possibilities;
+    }
+
+
+    asking() : void {
+        this.resolve(prompt(this.question))
+    }
+
+    resolve(choice : string | null) : void {
+        return
     }
 
     menu(name : string, options :string[]) : number {
@@ -53,33 +50,6 @@ export class Menu {
                 "Prêtre",
                 "Voleur",
             ]);
-            switch(menuTeam){
-                case 1 : 
-                    this.team.push(new Character("Guerrier",20,20,8,150));
-                    console.log(this.team);
-                    countTeam++;
-                    break;
-                case 2 : 
-                    this.team.push(new Mage("Mage",20,20,8,150,100));
-                    countTeam++;
-                    break;
-                case 3 : 
-                   // this.team.push(new Paladin("Paladin",20,20,8,150));
-                    //countTeam++;
-                    break;
-                case 4 : 
-                    this.team.push(new Barbare("Barbare",20,20,8,150));
-                    countTeam++;
-                    break;
-                case 5 : 
-                    this.team.push(new Pretre("Pretre",20,20,8,150));
-                    countTeam++;
-                    break;
-                case 6 : 
-                    //this.team.push(new Voleur("Voleur",20,20,8,150));
-                    //countTeam++;
-                    break;
-            }
         }
         
     }
@@ -87,3 +57,45 @@ export class Menu {
         console.log("Le joueur pourra choisir un groupe de trois aventuriers parmi 6 classes possibles : Guerrier , Mage , Paladin , Barbare , Prêtre , Voleur. \nChacun de ces personnages aura des caractéristiques et des actions disponibles différentes. Une fois le groupe choisi, l'équipe pourra partir en exploration.\nLe but du jeu est de parcourir 5 salles dans un donjon et qu'au moins un des aventuriers soit encore vivant à la fin de l'exploration.\n")
     }
 }
+
+export class AdventureSelect extends Menu {
+    constructor() {
+        super("Choissisez un héro !", [
+            "Guerrier",
+            "Mage",
+            "Paladin",
+            "Barbare",
+            "Prêtre",
+            "Voleur",
+        ])
+        while (GameManager.instance.adventurerGroup.length < 3) {
+            super.asking;
+        }
+    }
+
+    resolve(choice : string | null) : void {
+        switch(choice) {
+            case "1" : 
+                GameManager.instance.adventurerGroup.push(new Character("Guerrier",20,20,8,150));
+                break;
+            case "2" : 
+                GameManager.instance.adventurerGroup.push(new Mage("Mage",20,20,8,150,100));
+                break;
+            case "3" : 
+                //GameManager.instance.adventurerGroup.push(new Paladin("Paladin",20,20,8,150));
+                break;
+            case "4" : 
+                GameManager.instance.adventurerGroup.push(new Barbare("Barbare",20,20,8,150));
+                break;
+            case "5" : 
+                GameManager.instance.adventurerGroup.push(new Pretre("Pretre",20,20,8,150));
+                break;
+            case "6" : 
+                //GameManager.instance.adventurerGroup.push(new Voleur("Voleur",20,20,8,150));
+                break;
+        }
+    }
+
+}
+
+new AdventureSelect

@@ -13,12 +13,12 @@ export class Inventory {
         return Inventory._instance;
     }
 
+    private constructor() {}
 
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
 
-    private constructor() {}
 
-    public get items() {
+    public get items() : Array<string> {
         return this._items.map(item => item.emoji);
     }
 }
