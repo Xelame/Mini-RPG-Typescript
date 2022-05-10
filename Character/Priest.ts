@@ -15,14 +15,8 @@ export class Priest extends Character implements ManaUser {
      * @param speed Vitesse du Pretre
      * @param maxHealth Point de vie du Pretre
      */
-    constructor(
-        name: string,
-        physicalAttack: number,
-        physicalArmor: number,
-        speed: number,
-        maxHealth: number,
-    ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+    constructor() {
+        super("Priest",'👨‍⚖️', 35, 30, 4);
     }
 
     /**
@@ -44,4 +38,3 @@ export class Priest extends Character implements ManaUser {
         this.currentMana = Math.min(this.currentMana + Math.round(this.maxMana*percent/100), this.maxMana);
     }
 }
-export let priest = new Priest("Priest",35,30,4,100)

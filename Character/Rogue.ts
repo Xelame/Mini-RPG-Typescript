@@ -6,14 +6,8 @@ import { PartStar } from "../Items/PartStar.ts";
 import { Potion } from "../Items/Potion.ts";
 
 export class Rogue extends Character {
-    constructor(
-        name : string, 
-        physicalAttack : number, 
-        physicalArmor : number, 
-        speed : number, 
-        maxHealth : number
-        ){
-        super(name,physicalAttack,physicalArmor,speed,maxHealth)
+    constructor() {
+        super("Rogue", '🦸', 40, 40, 8)
     }
     specialAttack() : void {
         const steal = Math.round(Math.random() * 100);
@@ -34,4 +28,3 @@ export class Rogue extends Character {
         }
     }
 }
-export let rogue = new Rogue("Rogue",40,40,8,100)

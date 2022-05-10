@@ -1,14 +1,14 @@
 import { Character } from "./Character.ts";
 
 class Boss extends Character {
+
     constructor(
         name : string, 
         physicalAttack : number, 
         physicalArmor : number, 
         speed : number, 
-        maxHealth : number
         ) {
-        super(name,physicalAttack,physicalArmor,speed,maxHealth)
+        super(name,physicalAttack,physicalArmor,speed)
     }
     specialAttack(targets : Character[]) : void {
         const choiceAttack = Math.round(Math.random() * 100)
