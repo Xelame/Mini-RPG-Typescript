@@ -13,4 +13,7 @@ export abstract class Item {
     constructor(gainPercent: number) {
         this.gainPercent = gainPercent;
     }
+    destroy() {
+        
+    }
 }
