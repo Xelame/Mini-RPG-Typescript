@@ -1,3 +1,5 @@
+import { mage } from "./Character/Mage.ts";
+import { warrior } from "./Character/Warrior.ts";
 import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
@@ -20,9 +22,11 @@ export class Inventory {
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
 
 
-    public get items() : Array<string> {
-        return this._items.map(item => item.emoji);
+    public get items() : Array<Item> {
+        return this._items.filter(item => !item.alreadyUsed)
     }
 }
 
+console.log(Inventory.instance.items);
+Inventory.instance.items[2].use(mage)
 console.log(Inventory.instance.items);

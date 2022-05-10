@@ -1,4 +1,5 @@
 import { Character } from "../Character/Character.ts";
+import { Inventory } from "../Inventory.ts";
 import { Item } from "./Item.ts";
 
 export class PartStar extends Item {
@@ -15,5 +16,6 @@ export class PartStar extends Item {
         } else {
             target.heal(this.gainPercent + 30);
         }
+        this.alreadyUsed = true
     }
 }
