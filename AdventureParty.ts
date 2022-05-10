@@ -30,24 +30,31 @@ export class AdventureParty extends Menu {
         switch(choice) {
             case "1" : 
                 this.party.push(new Warrior);
+                console.log(this.party.map(character => character.emoji));
                 break;
             case "2" : 
                 this.party.push(new Mage);
+                console.log(this.party.map(character => character.emoji));
                 break;
             case "3" : 
                 this.party.push(new Paladin);
+                console.log(this.party.map(character => character.emoji));
                 break;
             case "4" : 
                 this.party.push(new Barbarian);
+                console.log(this.party.map(character => character.emoji));
                 break;
             case "5" : 
                 this.party.push(new Priest);
+                console.log(this.party.map(character => character.emoji));
                 break;
             case "6" : 
                 this.party.push(new Rogue);
+                console.log(this.party.map(character => character.emoji));
                 break;
             default:
                 console.log("Veuillez choisir une option valide !");
+                console.log(this.party.map(character => character.emoji));
                 break;
         }
     }

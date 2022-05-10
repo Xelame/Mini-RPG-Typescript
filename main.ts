@@ -2,7 +2,7 @@ import { Character } from "./Character/Character.ts";
 import { AdventureParty } from "./AdventureParty.ts";
 import { Fight } from "./Fight.ts"
 
-export class GameManager {
+class GameManager {
 
     public group: Character[] = [];
 
@@ -18,6 +18,7 @@ export class GameManager {
 
     public launch(): void {
         this.group = new AdventureParty().party;
+        
     }
 }
 
