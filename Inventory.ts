@@ -24,5 +24,3 @@ export class Inventory {
         return this._items.map(item => item.emoji);
     }
 }
-
-console.log(Inventory.instance.items);

@@ -10,10 +10,8 @@ export class Barbarian extends Character {
      * @param speed Vitesse du barbare
      * @param maxHealth Point de vie du barbare
      */
-    constructor(
-        name: string,
-    ) {
-        super(name,75,20,5,100);
+    constructor() {
+        super("Barbarian", '👨‍🎤',  75, 20, 5);
     }
 
     /**
@@ -32,4 +30,3 @@ export class Barbarian extends Character {
         }
     }
 }
-export let barbarian = new Barbarian("Barbarian")
