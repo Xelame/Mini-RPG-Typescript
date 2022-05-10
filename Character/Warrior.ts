@@ -11,7 +11,7 @@ export class Warrior extends Character {
      * @param maxHealth Point de vie du barbare
      */
     constructor() {
-        super("Warrior", '', 60, 60, 6);
+        super("Warrior", '🤺', 60, 60, 6);
     }
 
     /**

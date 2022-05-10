@@ -16,7 +16,7 @@ export class Priest extends Character implements ManaUser {
      * @param maxHealth Point de vie du Pretre
      */
     constructor() {
-        super("Priest",'👨‍⚖️', 35, 30, 4);
+        super("Priest",'🧕', 35, 30, 4);
     }
 
     /**
