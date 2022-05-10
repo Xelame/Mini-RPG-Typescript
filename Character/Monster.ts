@@ -16,7 +16,7 @@ export class Monstre extends Character {
         speed: number,
         maxHealth: number,
     ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+        super(name, physicalAttack, physicalArmor, speed);
     }
 
     /**
