@@ -6,6 +6,7 @@ import { priest } from "./Character/Priest.ts";
 import { paladin } from "./Character/Paladin.ts";
 import { warrior } from "./Character/Warrior.ts";
 import { GameManager } from "./main.ts";
+import { Fight } from "./Fight.ts"
 
 export class Menu {
 
@@ -21,7 +22,7 @@ export class Menu {
     asking() : void {
         this.resolve(prompt(this.question))
     }
-
+    
     resolve(choice : string | null) : void {
         return
     }
@@ -79,7 +80,7 @@ export class AdventureSelect extends Menu {
     resolve(choice : string | null) : void {
         switch(choice) {
             case "1" : 
-                GameManager.instance.adventurerGroup.push(warrior);
+                Fight.allyTeam.push(warrior);
                 break;
             case "2" : 
                 GameManager.instance.adventurerGroup.push(mage);
@@ -101,4 +102,27 @@ export class AdventureSelect extends Menu {
 
 }
 
+export class FightLoop extends Menu{
+    fight : Fight ;
+    constructor(fight : Fight){
+        super("Choissisez une action",[
+            "Basic attack",
+            "Special attack",
+            "Use item",])
+            this.fight = fight
+            while (this.fight.isFinished() != true){
+                this.asking();
+            }
+    }
+    resolve(choice : string | null):void{
+        switch (choice){
+            case "1":
+                break;
+            case"2":
+                break;
+            case"3":
+                break;
+    }
+}
+}
 new AdventureSelect

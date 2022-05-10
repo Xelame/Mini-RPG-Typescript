@@ -12,12 +12,8 @@ export class Barbarian extends Character {
      */
     constructor(
         name: string,
-        physicalAttack: number,
-        physicalArmor: number,
-        speed: number,
-        maxHealth: number,
     ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+        super(name,75,20,5,100);
     }
 
     /**
@@ -36,4 +32,4 @@ export class Barbarian extends Character {
         }
     }
 }
-export let barbarian = new Barbarian("Barbarian",75,20,5,100)
+export let barbarian = new Barbarian("Barbarian")

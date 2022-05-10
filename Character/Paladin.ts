@@ -1,8 +1,8 @@
 import { Character } from "./Character.ts";
 
 export class Paladin extends Character{
-    constructor(name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number) {
-        super(name,physicalAttack,physicalArmor,speed,maxHealth)
+    constructor(name : string) {
+        super(name,50,70,3,100)
     }
     specialAttack(targets : Character[]) : void {
         for (let i = 0; i < targets.length; i++) {
@@ -12,4 +12,4 @@ export class Paladin extends Character{
     }
     
 }
-export let paladin = new Paladin("Paladin",50,70,3,100)
+export let paladin = new Paladin("Paladin")
