@@ -11,7 +11,7 @@ export class Barbarian extends Character {
      * @param maxHealth Point de vie du barbare
      */
     constructor() {
-        super("Barbarian", '👨‍🎤',  75, 20, 5);
+        super("Barbarian", '💂',  75, 20, 5);
     }
 
     /**
