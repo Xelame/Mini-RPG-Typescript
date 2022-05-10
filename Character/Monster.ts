@@ -1,6 +1,5 @@
 import { Character } from "./Character.ts";
 
-
 export class Monstre extends Character {
     /**
      * Constructeur de notre classe Monstre
@@ -36,3 +35,8 @@ export class Monstre extends Character {
         }
     }
 }
+let vampire = new Monstre("Vampire",50,40,5,100)
+let ogre = new Monstre("Ogre",30,60,2,100)
+let basilic = new Monstre("Basilic",40,40,8,100)
+let harpie = new Monstre("Harpie",40,20,8,100)
+let squelette = new Monstre("Squelette",40,20,4,100)

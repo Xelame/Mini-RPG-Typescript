@@ -2,7 +2,7 @@ import { Character } from "./Character.ts";
 import ManaUser from "./iManaUser.ts";
 
 
-export class Pretre extends Character implements ManaUser {
+export class Priest extends Character implements ManaUser {
 
     currentMana = 10;
     maxMana = 10;
@@ -44,3 +44,4 @@ export class Pretre extends Character implements ManaUser {
         this.currentMana = Math.min(this.currentMana + Math.round(this.maxMana*percent/100), this.maxMana);
     }
 }
+export let priest = new Priest("Priest",35,30,4,100)

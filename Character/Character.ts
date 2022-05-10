@@ -92,7 +92,5 @@ export class Character {
             console.log("Nothing append");
         }
     }
-
-
 }
  

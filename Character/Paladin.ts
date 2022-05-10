@@ -1,6 +1,6 @@
 import { Character } from "./Character.ts";
 
-class Paladin extends Character{
+export class Paladin extends Character{
     constructor(name : string, physicalAttack : number, physicalArmor : number, speed : number, maxHealth : number) {
         super(name,physicalAttack,physicalArmor,speed,maxHealth)
     }
@@ -10,4 +10,6 @@ class Paladin extends Character{
             Math.round(this.currentHealth)
         }
     }
+    
 }
+export let paladin = new Paladin("Paladin",50,70,3,100)

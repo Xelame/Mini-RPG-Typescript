@@ -56,3 +56,4 @@ export class Mage extends Character implements Haki {
         this.currentMana = Math.min(this.currentMana + Math.round(this.maxMana*percent/100), this.maxMana);
     }
 }
+export let mage = new Mage("Mage",30,30,4,100,40)
