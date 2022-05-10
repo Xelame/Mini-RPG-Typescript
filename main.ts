@@ -1,10 +1,11 @@
 import { Character } from "./Character/Character.ts";
-import { Menu } from "./menu.ts";
+import { AdventureParty } from "./AdventureParty.ts";
 import { Fight } from "./Fight.ts"
 
 export class GameManager {
 
-    public adventurerGroup: Character[] = [];
+    public group: Character[] = [];
+
     private static _instance: GameManager;
     public static get instance(): GameManager {
         if (!GameManager._instance) {
@@ -16,6 +17,8 @@ export class GameManager {
     private constructor() {}
 
     public launch(): void {
-
+        this.group = new AdventureParty().party;
     }
 }
+
+GameManager.instance.launch()
