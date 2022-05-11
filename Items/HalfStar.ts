@@ -15,6 +15,9 @@ export class HalfStar extends Item {
             target.revive(this.gainPercent);
         } else {
             target.heal(this.gainPercent);
+        
         }
+        this.alreadyUsed = true
+
     }
 }

@@ -11,5 +11,8 @@ export class Ether extends Item {
 
     public use(target: ManaUser): void {
         target.gainMana(this.gainPercent);
+        this.alreadyUsed = true
+
     }
+
 }

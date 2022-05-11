@@ -19,5 +19,6 @@ export class Potion extends Item {
         if (!target.isDead) {
             target.currentHealth = Math.min(target.currentHealth + target.maxHealth * this.gainPercent / 100, target.maxHealth);
         }
+        this.alreadyUsed = true
     }
 }
