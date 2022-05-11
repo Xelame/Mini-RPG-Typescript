@@ -1,4 +1,4 @@
-import { Character } from "./Character/Character.ts";
+import { Character } from "./Characters/Character.ts";
 import { Menu } from "./menu.ts";
 
 export class Fight {

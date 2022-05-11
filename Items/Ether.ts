@@ -1,4 +1,4 @@
-import ManaUser from "../Character/iManaUser.ts";
+import ManaUser from "../Characters/iManaUser.ts";
 import { Item } from "./Item.ts";
 
 export class Ether extends Item {

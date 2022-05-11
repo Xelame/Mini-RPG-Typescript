@@ -3,17 +3,24 @@ import Haki from "./iManaUser.ts";
 
 export class Mage extends Character implements Haki {
 
+    /**
+     * Mana actuelle du Mage
+     */
     currentMana: number = 10;
 
+    /**
+     * Mana max du Mage
+     */
     maxMana: number = 10;
 
     /**
-     * Puissance magique du personnage
+     * Puissance magique du Mage
      */
     magicAttack: number;
 
     /**
      * Constructeur de notre Personnage Mage
+     * Avec des valeurs par défaut :
      */
     constructor() {
         super("Mage", '🧙', 30, 30, 4);

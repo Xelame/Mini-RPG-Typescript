@@ -1,10 +1,10 @@
-import { Character } from "./Character/Character.ts";
-import { barbarian } from "./Character/Barbarian.ts";
-import { rogue } from "./Character/Rogue.ts";
-import { mage } from "./Character/Mage.ts";
-import { priest } from "./Character/Priest.ts";
-import { paladin } from "./Character/Paladin.ts";
-import { warrior } from "./Character/Warrior.ts";
+import { Character } from "./Characters/Character.ts";
+import { barbarian } from "./Characters/Barbarian.ts";
+import { rogue } from "./Characters/Rogue.ts";
+import { mage } from "./Characters/Mage.ts";
+import { priest } from "./Characters/Priest.ts";
+import { paladin } from "./Characters/Paladin.ts";
+import { warrior } from "./Characters/Warrior.ts";
 import { GameManager } from "./main.ts";
 import { Fight } from "./Fight.ts"
 

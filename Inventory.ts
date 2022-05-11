@@ -1,5 +1,4 @@
-import { mage } from "./Character/Mage.ts";
-import { warrior } from "./Character/Warrior.ts";
+import { Mage } from "./Characters/Mage.ts";
 import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
@@ -23,10 +22,11 @@ export class Inventory {
 
 
     public get items() : Array<Item> {
-        return this._items.filter(item => !item.alreadyUsed)
+        this._items = this._items.filter(item => !item.alreadyUsed)
+        return this._items
     }
 }
 
 console.log(Inventory.instance.items);
-Inventory.instance.items[2].use(mage)
+Inventory.instance.items[2].use(new Mage())
 console.log(Inventory.instance.items);

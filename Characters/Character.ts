@@ -52,7 +52,6 @@ export class Character {
      * @param physicalAttack Attaque physique
      * @param physicalArmor Défense physique
      * @param speed Vitesse du personnage
-     * @param maxHealth Point de vie du personnage
      */
     constructor(
         name: string,
