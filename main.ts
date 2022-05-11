@@ -1,6 +1,7 @@
 import { Character } from "./Characters/Character.ts";
-import { AdventureParty } from "./AdventureParty.ts";
-import { Fight } from "./Fight.ts"
+import { Inventory } from "./Inventory.ts";
+import { AdventureParty } from "./Menu/AdventureParty.ts";
+import { ChestRoom } from "./Menu/ChestRoom.ts";
 
 class GameManager {
 
@@ -18,7 +19,8 @@ class GameManager {
 
     public launch(): void {
         this.group = new AdventureParty().party;
-        
+        new ChestRoom(this.group)
+        console.log(Inventory.instance.items);
     }
 }
 

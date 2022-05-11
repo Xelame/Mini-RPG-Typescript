@@ -15,7 +15,7 @@ export class Inventory {
     }
 
     private constructor() {}
-    public addItems(item : Item) {
+    public addItem(item : Item) {
         this._items.push(item)
     }
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
@@ -26,7 +26,3 @@ export class Inventory {
         return this._items
     }
 }
-
-console.log(Inventory.instance.items);
-Inventory.instance.items[2].use(new Mage())
-console.log(Inventory.instance.items);

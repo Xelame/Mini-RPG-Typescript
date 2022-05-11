@@ -1,5 +1,5 @@
 import { Character } from "./Characters/Character.ts";
-import { Menu } from "./menu.ts";
+import { Menu } from "./Menu/Menu.ts";
 
 export class Fight {
     allyTeam: Character[];

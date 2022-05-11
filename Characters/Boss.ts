@@ -4,11 +4,12 @@ class Boss extends Character {
 
     constructor(
         name : string, 
+        emoji : string,
         physicalAttack : number, 
         physicalArmor : number, 
         speed : number, 
         ) {
-        super(name,physicalAttack,physicalArmor,speed)
+        super(name, emoji,physicalAttack,physicalArmor,speed)
     }
     specialAttack(targets : Character[]) : void {
         const choiceAttack = Math.round(Math.random() * 100)
