@@ -34,7 +34,7 @@ export class Fight {
         }
         return false;
     }
-    whichOrder() {
+    whichOrder():Character[] {
         const allCharacterOrder = this.allCharacter.filter((c) =>
             c.currentHealth > 0
         );
