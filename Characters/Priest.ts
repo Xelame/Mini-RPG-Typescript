@@ -4,25 +4,22 @@ import ManaUser from "./iManaUser.ts";
 
 export class Priest extends Character implements ManaUser {
 
+    /**
+     * Mana actuelle du Pretre
+     */
     currentMana = 10;
+
+    /**
+     * Mana max du Pretre
+     */
     maxMana = 10;
 
     /**
      * Constructeur de notre classe Pretre
-     * @param name Nom du Pretre
-     * @param physicalAttack Attaque physique du Pretre
-     * @param physicalArmor Défense physique du Pretre
-     * @param speed Vitesse du Pretre
-     * @param maxHealth Point de vie du Pretre
+     * Avec des valeurs par défaut :
      */
-    constructor(
-        name: string,
-        physicalAttack: number,
-        physicalArmor: number,
-        speed: number,
-        maxHealth: number,
-    ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+    constructor() {
+        super("Priest",'🧕', 35, 30, 4);
     }
 
     /**
@@ -44,4 +41,3 @@ export class Priest extends Character implements ManaUser {
         this.currentMana = Math.min(this.currentMana + Math.round(this.maxMana*percent/100), this.maxMana);
     }
 }
-export let priest = new Priest("Priest",35,30,4,100)

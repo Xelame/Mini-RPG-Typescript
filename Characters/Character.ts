@@ -7,6 +7,11 @@ export class Character {
     name: string;
 
     /**
+     * Représentation graphique du personnage
+     */
+    readonly emoji: string;
+
+    /**
      * Puissance d'attaque physique
      */
     physicalAttack: number;
@@ -24,12 +29,12 @@ export class Character {
     /**
      * Point de vie maximum du personnage
      */
-    maxHealth: number;
+    readonly maxHealth: number = 100;
 
     /**
      * Point de vie actuel du personnage
      */
-    currentHealth: number;
+    currentHealth: number = 100;
 
     /**
      * Notre personnage est créer vivant
@@ -43,24 +48,23 @@ export class Character {
     /**
      * Constructeur de notre classe Character
      * @param name Nom du personnage
+     * @param emoji Représente le personnage
      * @param physicalAttack Attaque physique
      * @param physicalArmor Défense physique
      * @param speed Vitesse du personnage
-     * @param maxHealth Point de vie du personnage
      */
     constructor(
         name: string,
+        emoji: string,
         physicalAttack: number,
         physicalArmor: number,
         speed: number,
-        maxHealth: number,
     ) {
         this.name = name;
+        this.emoji = emoji;
         this.physicalAttack = physicalAttack;
         this.physicalArmor = physicalArmor;
         this.speed = speed;
-        this.maxHealth = maxHealth;
-        this.currentHealth = maxHealth;
     }
 
     /**

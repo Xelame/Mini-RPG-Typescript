@@ -4,20 +4,10 @@ import { Character } from "./Character.ts";
 export class Barbarian extends Character {
     /**
      * Constructeur de notre classe Barbare
-     * @param name Nom du monstre
-     * @param physicalAttack Attaque physique du barbare
-     * @param physicalArmor Défense physique du barbare
-     * @param speed Vitesse du barbare
-     * @param maxHealth Point de vie du barbare
+     * Avec des valeurs par défaut :
      */
-    constructor(
-        name: string,
-        physicalAttack: number,
-        physicalArmor: number,
-        speed: number,
-        maxHealth: number,
-    ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+    constructor() {
+        super("Barbarian", '💂',  75, 20, 5);
     }
 
     /**
@@ -36,4 +26,3 @@ export class Barbarian extends Character {
         }
     }
 }
-export let barbarian = new Barbarian("Barbarian",75,20,5,100)

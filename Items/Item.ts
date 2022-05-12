@@ -1,5 +1,5 @@
-import { Character } from "../Character/Character.ts";
-import ManaUsed from "../Character/iManaUser.ts"
+import { Character } from "../Characters/Character.ts";
+import ManaUsed from "../Characters/iManaUser.ts"
 export abstract class Item {
     /**
      * Gain donné par l'objet en pourcentage

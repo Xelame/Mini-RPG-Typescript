@@ -1,9 +1,9 @@
-import { mage } from "./Character/Mage.ts";
-import { warrior } from "./Character/Warrior.ts";
+import { Mage } from "./Characters/Mage.ts";
 import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
 import { Potion } from "./Items/Potion.ts";
+import {Menu} from "./Menu/Menu.ts"
 
 
 export class Inventory {
@@ -16,17 +16,17 @@ export class Inventory {
     }
 
     private constructor() {}
-    public addItems(item : Item) {
+    public addItem(item : Item) {
         this._items.push(item)
     }
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
 
 
     public get items() : Array<Item> {
-        return this._items.filter(item => !item.alreadyUsed)
+        this._items = this._items.filter(item => !item.alreadyUsed)
+        return this._items
     }
 }
+export class MenuInventory extends Menu{
 
-console.log(Inventory.instance.items);
-Inventory.instance.items[2].use(mage)
-console.log(Inventory.instance.items);
+}

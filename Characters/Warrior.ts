@@ -10,14 +10,8 @@ export class Warrior extends Character {
      * @param speed Vitesse du barbare
      * @param maxHealth Point de vie du barbare
      */
-    constructor(
-        name: string,
-        physicalAttack: number,
-        physicalArmor: number,
-        speed: number,
-        maxHealth: number,
-    ) {
-        super(name, physicalAttack, physicalArmor, speed, maxHealth);
+    constructor() {
+        super("Warrior", '🤺', 60, 60, 6);
     }
 
     /**
@@ -29,4 +23,3 @@ export class Warrior extends Character {
         target.currentHealth = Math.max(this.currentHealth - damage, 0);
     }
 }
-export let warrior = new Warrior("Warrior",60,60,6,100)
