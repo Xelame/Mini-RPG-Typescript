@@ -1,12 +1,11 @@
-import { Barbarian } from "./Characters/Barbarian.ts";
-import { Rogue } from "./Characters/Rogue.ts";
-import { Mage } from "./Characters/Mage.ts";
-import { Priest } from "./Characters/Priest.ts";
-import { Paladin } from "./Characters/Paladin.ts";
-import { Warrior } from "./Characters/Warrior.ts";
-import { Character } from "./Characters/Character.ts";
-import { Menu } from "./menu.ts";
-import { FightLoop } from "./FightLoop.ts";
+import { Barbarian } from "../Characters/Barbarian.ts";
+import { Rogue } from "../Characters/Rogue.ts";
+import { Mage } from "../Characters/Mage.ts";
+import { Priest } from "../Characters/Priest.ts";
+import { Paladin } from "../Characters/Paladin.ts";
+import { Warrior } from "../Characters/Warrior.ts";
+import { Character } from "../Characters/Character.ts";
+import { Menu } from "./Menu.ts";
 
 export class AdventureParty extends Menu {
 
@@ -55,5 +54,6 @@ export class AdventureParty extends Menu {
                 console.log("Veuillez choisir une option valide !");
                 break;
         }
+        console.log(this.party.map(character => character.emoji));
     }
 }

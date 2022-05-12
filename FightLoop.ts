@@ -1,5 +1,5 @@
 
-import { Menu } from "./menu.ts";
+import { Menu } from "./Menu/Menu.ts";
 import { Fight } from "./Fight.ts";
 import { FightMenu } from "./Fight.ts";
 export class FightLoop extends Menu {
@@ -10,7 +10,7 @@ export class FightLoop extends Menu {
             "Basic attack",
             "Special attack",
             "Use item",])
-            
+
         this.fight = fight
         this.fightMenu = fightMenu
         while (this.fight.isFinished() != true) {
