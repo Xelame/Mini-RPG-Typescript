@@ -96,5 +96,11 @@ export class Character {
             console.log("Nothing append");
         }
     }
+    specialAttack(target: Character | Character[]):void{
+        return
+    }
+    attackAlly(target:Character | Character[]):void{
+        return
+    }
 }
  

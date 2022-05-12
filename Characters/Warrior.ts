@@ -14,12 +14,4 @@ export class Warrior extends Character {
         super("Warrior", '🤺', 60, 60, 6);
     }
 
-    /**
-     * Attaque un ennemi 
-     * @param target Liste des ennemies
-     */
-     attack(target: Character): void {
-        const damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
-        target.currentHealth = Math.max(this.currentHealth - damage, 0);
-    }
 }

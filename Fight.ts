@@ -48,12 +48,12 @@ export class FightMenu extends Menu {
 
     resolve(choice: string | null): void {
         let allCharacterOrderFight = this.fight.whichOrder()
-        for (let i = 0; i < allCharacterOrderFight.length; i++) {
-            if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
-
-                switch (choice) {
+        let i = 0
+                    console.log(allCharacterOrderFight[i].name + " TURN")
+                    switch (choice) {
                     case "1":
-                        allCharacterOrderFight[i].attack(this.fight.enemyTeam[0])
+                        allCharacterOrderFight[i].attack(this.fight.enemyTeam[1])
+                        console.log(this.fight.enemyTeam[i].currentHealth + " Enemie")
                         break;
                     case "2":
                         allCharacterOrderFight[i].attack(this.fight.enemyTeam[1])
@@ -67,5 +67,3 @@ export class FightMenu extends Menu {
                 }
             }
         }
-    }
-}

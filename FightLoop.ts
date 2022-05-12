@@ -2,6 +2,7 @@
 import { Menu } from "./Menu/Menu.ts";
 import { Fight } from "./Fight.ts";
 import { FightMenu } from "./Fight.ts";
+import {Character} from "./Characters/Character.ts"
 export class FightLoop extends Menu {
     fight: Fight;
     fightMenu: FightMenu
@@ -18,23 +19,18 @@ export class FightLoop extends Menu {
         }
     }
     resolve(choice: string | null): void {
-        let allCharacterOrderFight = this.fight.whichOrder()
-        for (let i = 0; i < allCharacterOrderFight.length; i++) {
-            if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
-            console.log(allCharacterOrderFight[i].name )
                 switch (choice) {
                     case "1":
                         this.fightMenu.asking()
                         break;
                     case "2":
-                        // allCharacterOrder[i].specialAttack()
+                   //   allCharacterOrderFight[i].specialAttack(this.fight.enemyTeam)
                         break;
                     case "3":
                         break;
                 }
-            }else{
-              // allCharacterOrderFight[i].attackAlly()
+          //  }else{
+             // allCharacterOrderFight[i].attackAlly(this.fight.allyTeam)
+              console.log("attaque enemie ")
             }
-        }
     }
-}
