@@ -1,4 +1,5 @@
 import { Character } from "./Characters/Character.ts";
+import { Monstre } from "./Characters/Monster.ts";
 import { Menu } from "./Menu/Menu.ts";
 
 
@@ -14,34 +15,18 @@ export class Fight {
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
         for (let character of this.allCharacter) {
-            if (character.isMyTurn) {
-                new FightMenu(character, this.enemyTeam)
+            console.log(character.name + " is my turn");
+            if (character instanceof Monstre) {
+                character.attackAlly(this.allyTeam);
+            } else {
+                new FightMenu(character, this.enemyTeam);
             }
         }
     }
 
     public get allCharacter(): Character[] {
-        let allCharacter = this.allyTeam.concat(this.enemyTeam).filter((c) => !c.isDead).sort((a, b) => b.speed - a.speed);
-        if (allCharacter.every((c) => !c.isMyTurn)) {
-            allCharacter[0].isMyTurn = true;
-        } else {
-            let unique = true;
-            for (let characterIndex in allCharacter) {
-                if (allCharacter[characterIndex].isMyTurn && unique) {
-                    unique = false;
-                    allCharacter[characterIndex].isMyTurn = false;
-                    if (parseInt(characterIndex) + 1 < allCharacter.length) {
-                        allCharacter[parseInt(characterIndex) + 1].isMyTurn = true;
-                    } else {
-                        allCharacter[0].isMyTurn = true;
-                    }
-                }
-            }
-        }
-
-        return allCharacter;
+        return this.allyTeam.concat(this.enemyTeam).filter((c) => !c.isDead).sort((a, b) => b.speed - a.speed);
     }
-
 }
 
 
@@ -59,18 +44,19 @@ export class FightMenu extends Menu {
             "Basic attack",
             "Special attack",
             "Use item",])
-        super.asking();
         this.character = character;
         this.enemies = allCharacter;
+        super.asking();
     }
 
     resolve(choice: string | null): void {
         switch (choice) {
             case "1":
-                this.character.attack(this.enemies[new CibleMenu(this.enemies).cible]);
+                let cible = new CibleMenu(this.enemies).cible
+                this.character.attack(this.enemies[cible]);
                 break;
             case "2":
-                // allCharacterOrder[i].specialAttack(ennemyTeam[]);
+
                 break;
             case "3":
 
@@ -86,6 +72,7 @@ export class CibleMenu extends Menu {
 
     constructor(ennemyTeam: Character[]) {
         super("Choissisez quel adversaire attaquer!", ennemyTeam.map((c) => c.name))
+        super.asking();
     }
 
 
@@ -93,10 +80,13 @@ export class CibleMenu extends Menu {
         switch (choice) {
             case "1":
                 this.cible = 0;
+                break
             case "2":
-                this.cible = 1
+                this.cible = 1;
+                break
             case "3":
                 this.cible = 2;
+                break
             default:
                 console.log("Veuillez choisir une option valide !");
                 super.asking()

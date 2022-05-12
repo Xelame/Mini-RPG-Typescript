@@ -7,7 +7,6 @@ export class Monstre extends Character {
      * @param physicalAttack Attaque physique du monstre
      * @param physicalArmor Défense physique du monstre
      * @param speed Vitesse du monstre
-     * @param maxHealth Point de vie du monstre
      */
     constructor(
         name: string,

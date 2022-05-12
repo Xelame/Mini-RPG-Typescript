@@ -24,8 +24,6 @@ export abstract class Character {
      */
     speed: number;
 
-    isMyTurn: boolean = false;
-
     /**
      * Point de vie maximum du personnage
      */
