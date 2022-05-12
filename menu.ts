@@ -1,3 +1,5 @@
+import { Fight } from "./Fight.ts"
+
 export abstract class Menu {
 
     question: string;

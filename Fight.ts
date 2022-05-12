@@ -1,4 +1,4 @@
-import { Character } from "./Character/Character.ts";
+import { Character } from "./Characters/Character.ts";
 import { Menu } from "./menu.ts";
 
 export class Fight {
@@ -34,12 +34,46 @@ export class Fight {
         }
         return false;
     }
-    whichOrder():Character[] {
+    whichOrder(): Character[] {
         const allCharacterOrder = this.allCharacter.filter((c) =>
             c.currentHealth > 0
         );
         allCharacterOrder.sort((a, b) => b.speed - a.speed);
         console.log(allCharacterOrder);
         return allCharacterOrder;
+    }
+}
+export class FightMenu extends Menu {
+    fight: Fight;
+    constructor(fight: Fight) {
+        super("Choissisez quel adversaire attaquer!", [
+           //fight.enemyTeam.name[0],
+            "enemie1",
+            "enemie2",
+        ])
+        this.fight = fight
+    }
+
+    resolve(choice: string | null): void {
+        let allCharacterOrderFight = this.fight.whichOrder()
+        for (let i = 0; i < allCharacterOrderFight.length; i++) {
+            if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
+                console.log(allCharacterOrderFight[i].name)
+                switch (choice) {
+                    case "1":
+                        allCharacterOrderFight[i].attack(this.fight.enemyTeam[0])
+                        break;
+                    case "2":
+                        allCharacterOrderFight[i].attack(this.fight.enemyTeam[1])
+                        break;
+                    case "3":
+                        allCharacterOrderFight[i].attack(this.fight.enemyTeam[2])
+                        break;
+                    default:
+                        console.log("Veuillez choisir une option valide !");
+                        break;
+                }
+            }
+        }
     }
 }

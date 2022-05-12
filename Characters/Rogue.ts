@@ -1,14 +1,23 @@
 import { Inventory } from "../Inventory.ts";
-import {Character} from "./Character.ts"
-import {HalfStar} from "../Items/HalfStar.ts"
+import { Character } from "./Character.ts"
+import { HalfStar } from "../Items/HalfStar.ts"
 import { Ether } from "../Items/Ether.ts";
 import { PartStar } from "../Items/PartStar.ts";
 import { Potion } from "../Items/Potion.ts";
 
 export class Rogue extends Character {
+
+    /**
+     * Constructeur de notre classe Rogue
+     * Avec des valeurs par défaut :
+     */
     constructor() {
         super("Rogue", '🦸', 40, 40, 8)
     }
+
+    /**
+     * Le Voleur vole un item (une chance de rien)
+     */
     specialAttack() : void {
         const steal = Math.round(Math.random() * 100);
         if (steal < 5) {
@@ -28,3 +37,7 @@ export class Rogue extends Character {
         }
     }
 }
+
+console.log(Inventory.instance.items)
+new Rogue().specialAttack()
+console.log(Inventory.instance.items)

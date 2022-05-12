@@ -1,4 +1,4 @@
-import { Character } from "../Character/Character.ts";
+import { Character } from "../Characters/Character.ts";
 import { Item } from "./Item.ts";
 
 export class Potion extends Item {
@@ -19,5 +19,6 @@ export class Potion extends Item {
         if (!target.isDead) {
             target.currentHealth = Math.min(target.currentHealth + target.maxHealth * this.gainPercent / 100, target.maxHealth);
         }
+        this.alreadyUsed = true
     }
 }

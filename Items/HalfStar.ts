@@ -1,4 +1,4 @@
-import { Character } from "../Character/Character.ts";
+import { Character } from "../Characters/Character.ts";
 import { Item } from "./Item.ts";
 
 
@@ -15,6 +15,9 @@ export class HalfStar extends Item {
             target.revive(this.gainPercent);
         } else {
             target.heal(this.gainPercent);
+        
         }
+        this.alreadyUsed = true
+
     }
 }

@@ -1,15 +1,17 @@
-import { Barbarian } from "./Character/Barbarian.ts";
-import { Rogue } from "./Character/Rogue.ts";
-import { Mage } from "./Character/Mage.ts";
-import { Priest } from "./Character/Priest.ts";
-import { Paladin } from "./Character/Paladin.ts";
-import { Warrior } from "./Character/Warrior.ts";
-import { Character } from "./Character/Character.ts";
+import { Barbarian } from "./Characters/Barbarian.ts";
+import { Rogue } from "./Characters/Rogue.ts";
+import { Mage } from "./Characters/Mage.ts";
+import { Priest } from "./Characters/Priest.ts";
+import { Paladin } from "./Characters/Paladin.ts";
+import { Warrior } from "./Characters/Warrior.ts";
+import { Character } from "./Characters/Character.ts";
 import { Menu } from "./menu.ts";
+import { FightLoop } from "./FightLoop.ts";
 
 export class AdventureParty extends Menu {
 
     party: Character[] = [];
+    
 
     constructor() {
         super("Choissisez un héro !", [
@@ -22,6 +24,9 @@ export class AdventureParty extends Menu {
         ])
         while (this.party.length < 3) {
             super.asking();
+        }
+        if (this.party.length = 3){
+
         }
     }
 

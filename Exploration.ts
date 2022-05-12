@@ -75,4 +75,4 @@ export class Room {
     }
 }
 
-new Room('Boss').generation();
+new Room('treasure').generation();

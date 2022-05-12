@@ -1,4 +1,4 @@
-import { Character } from "./Character/Character.ts";
+import { Character } from "./Characters/Character.ts";
 import { AdventureParty } from "./AdventureParty.ts";
 import { Fight } from "./Fight.ts"
 import { FightLoop } from "./FightLoop.ts"
