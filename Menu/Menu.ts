@@ -1,6 +1,3 @@
-import { Character } from "../Characters/Character.ts";
-import { Fight } from "../Fight.ts"
-
 export abstract class Menu {
 
     /**

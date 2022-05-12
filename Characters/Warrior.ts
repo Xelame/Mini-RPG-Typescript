@@ -13,5 +13,4 @@ export class Warrior extends Character {
     constructor() {
         super("Warrior", '🤺', 60, 60, 6);
     }
-
 }

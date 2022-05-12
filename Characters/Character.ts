@@ -1,6 +1,4 @@
-import ManaUser from './iManaUser.ts';
-
-export class Character {
+export abstract class Character {
     /**
      * Nom du personnage
      */
@@ -25,6 +23,8 @@ export class Character {
      * Vitesse du personnage
      */
     speed: number;
+
+    isMyTurn: boolean = false;
 
     /**
      * Point de vie maximum du personnage
@@ -96,10 +96,12 @@ export class Character {
             console.log("Nothing append");
         }
     }
-    specialAttack(target: Character | Character[]):void{
+
+    specialAttack(target: Character | Character[]): void {
         return
     }
-    attackAlly(target:Character | Character[]):void{
+
+    attackAlly(targets: Character[]): void {
         return
     }
 }
