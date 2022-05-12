@@ -3,6 +3,7 @@ import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
 import { Potion } from "./Items/Potion.ts";
+import {Menu} from "./Menu/Menu.ts"
 
 
 export class Inventory {
@@ -25,4 +26,7 @@ export class Inventory {
         this._items = this._items.filter(item => !item.alreadyUsed)
         return this._items
     }
+}
+export class MenuInventory extends Menu{
+
 }

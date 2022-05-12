@@ -10,6 +10,7 @@ import { Menu } from "./Menu.ts";
 export class AdventureParty extends Menu {
 
     party: Character[] = [];
+    
 
     constructor() {
         super("Choissisez un héro !", [
@@ -22,6 +23,9 @@ export class AdventureParty extends Menu {
         ])
         while (this.party.length < 3) {
             super.asking();
+        }
+        if (this.party.length = 3){
+
         }
     }
 
