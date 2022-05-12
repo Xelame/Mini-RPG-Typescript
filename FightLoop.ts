@@ -1,7 +1,7 @@
 
 import { Menu } from "./Menu/Menu.ts";
 import { Fight } from "./Fight.ts";
-import { FightMenu } from "./Fight.ts";
+/*
 export class FightLoop extends Menu {
     fight: Fight;
     fightMenu: FightMenu
@@ -31,3 +31,4 @@ export class FightLoop extends Menu {
                 }
             }
         }
+        */

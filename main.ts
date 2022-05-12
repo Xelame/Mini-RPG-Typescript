@@ -3,9 +3,8 @@ import { Monstre } from "./Characters/Monster.ts";
 import { Inventory } from "./Inventory.ts";
 import { AdventureParty } from "./Menu/AdventureParty.ts";
 import { ChestRoom } from "./Menu/ChestRoom.ts";
-import { FightLoop } from "./FightLoop.ts"
 import { Fight } from "./Fight.ts"
-import { FightMenu } from "./Fight.ts"
+
 class GameManager {
 
     public group: Character[] = [];
@@ -26,7 +25,7 @@ class GameManager {
     public run(): void {
         this.group = new AdventureParty().party;
         new ChestRoom(this.group)
-        new FightLoop(new Fight(this.group, this.generateMonsterParty()), new FightMenu(new Fight(this.group, this.generateMonsterParty())))
+        new Fight(this.group, this.generateMonsterParty())
         console.log(Inventory.instance.items);
     }
 
