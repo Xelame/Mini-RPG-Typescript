@@ -17,12 +17,12 @@ export class Fight {
         let index = 0;
         while (!this.isFinished()) {
             let character = this.allCharacter[index%this.allCharacter.length];
-            console.log(character.name + " is my turn");
             if (character instanceof Monstre) {
                 character.attackAlly(this.allyTeam);
                 index++
             } else {
-                new FightMenu(character, this.enemyTeam);
+                console.log(character.name + " is my turn");
+                new FightMenu(character, this.enemyTeam.filter(c=> !c.isDead), this.allyTeam);
                 index++
             }
         }
@@ -52,27 +52,42 @@ export class FightMenu extends Menu {
 
     enemies: Character[];
 
+    allies: Character[];
+
     constructor(
         character: Character,
-        allCharacter: Character[],
+        enemies: Character[],
+        allies: Character[],
     ) {
         super("Choissisez une action", [
             "Basic attack",
             "Special attack",
             "Use item",])
         this.character = character;
-        this.enemies = allCharacter;
+        this.enemies = enemies;
+        this.allies = allies
         super.asking();
     }
 
     resolve(choice: string | null): void {
         switch (choice) {
             case "1":
-                let cible = new CibleMenu(this.enemies).cible
-                this.character.attack(this.enemies[cible]);
+                this.character.attack(this.enemies[new CibleMenu(this.enemies).cible]);
                 break;
             case "2":
-
+                if (!this.character.specialAttackOnAll(this.enemies)) {
+                    if (!this.character.specialAttackOnNothing()) {
+                        if (this.character.specialAttackOnEnnemy()) {
+                            this.character.specialAttackOnEnnemy(this.enemies[new CibleMenu(this.enemies).cible]);
+                        }
+                        if (this.character.specialAttackOnAlly()) {
+                            this.character.specialAttackOnAlly(this.allies[new CibleMenu(this.allies).cible]);
+                        } else {
+                            console.log("Nothing append");
+                            super.asking();
+                        }
+                    }
+                }
                 break;
             case "3":
 

@@ -14,7 +14,7 @@ export class Barbarian extends Character {
      * Attaque un ennemi au hasard si il a plus de 20 % et donc perd 20 % de sa vie
      * @param targets Liste des ennemies
      */
-    specialAttack(targets: Character[]): void {
+    specialAttackOnAll(targets: Character[]): boolean {
         if (this.currentHealth > this.maxHealth * 20 / 100) {
             const target = targets[Math.round(Math.random() * targets.length)];
             const damage = Math.max(
@@ -24,5 +24,6 @@ export class Barbarian extends Character {
             target.currentHealth = Math.max(target.currentHealth - damage, 0);
             this.currentHealth -= Math.round(this.maxHealth * 20 / 100);
         }
+        return true
     }
 }
