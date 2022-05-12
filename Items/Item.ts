@@ -18,7 +18,7 @@ export abstract class Item {
         this.gainPercent = gainPercent;
     }
 
-    use(character : Character | ManaUsed): void {
+    abstract use(character : Character | ManaUsed): void {
         return 
     }
 }

@@ -33,5 +33,7 @@ export class Fight{
         console.log("Apeller suite du jeu ")
         return true 
     }
+    
+
     }
 }

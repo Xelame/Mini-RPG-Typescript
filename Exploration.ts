@@ -1,3 +1,4 @@
+import { Character } from "./Character/Character.ts";
 
 export class Exploration {
     // roomChain : Room[];
@@ -13,27 +14,11 @@ export class Room {
     generation(): void {
         switch (this.type) {
             case 'fight':
-                console.log(`
-╔════════════════════╗
-║                    ║
-║                    ║
-║                    ║
-║                    ║
-║                    ║
-╚════════════════════╝
-`)
+                console.log(``)
                 // new Fight();
                 break;
             case 'treasure':
-                console.log(`
-╔════════════════════╗
-║                    ║
-╝                    ╚
-                🧰
-╗                    ╔
-║                    ║
-╚════════════════════╝
-`)
+                console.log(``)
 
                 const luck = Math.round(Math.random() * 100);
                 if (luck < 50) {
@@ -60,19 +45,12 @@ export class Room {
                 }*/
                 break;
             case 'Boss':
-                console.log(`
-╔════════════════════╗
-║                    ║
-╝                    ║
-              👹     ║
-╗                    ║
-║                    ║
-╚════════════════════╝
-`)
+        
+                console.log(``)
                 // new Fight();
                 break;
         }
     }
 }
 
-new Room('treasure').generation();
+new Room('treasure').generation()
