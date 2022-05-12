@@ -26,6 +26,7 @@ export class FightLoop extends Menu {
                         // allCharacterOrder[i].specialAttack()
                         break;
                     case "3":
+
                         break;
                 }
             }

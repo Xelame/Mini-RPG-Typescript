@@ -4,16 +4,14 @@ import { Menu } from "./Menu/Menu.ts";
 export class Fight {
     allyTeam: Character[];
     enemyTeam: Character[];
-    allCharacter: Character[];
 
     constructor(
         allyTeam: Character[],
         enemyTeam: Character[],
-        allCharacter: Character[],
+        
     ) {
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
-        this.allCharacter = this.allyTeam.concat(this.enemyTeam);
     }
     isFinished(): boolean {
         let alive = [];
@@ -35,7 +33,7 @@ export class Fight {
         return false;
     }
     whichOrder(): Character[] {
-        const allCharacterOrder = this.allCharacter.filter((c) =>
+        const allCharacterOrder = this.allyTeam.concat(this.enemyTeam).filter((c) =>
             c.currentHealth > 0
         );
         allCharacterOrder.sort((a, b) => b.speed - a.speed);
