@@ -25,9 +25,8 @@ class GameManager {
     public launch(): void {
         console.log(this.generateMonsterParty().map(Character => Character.emoji));
         this.group = new AdventureParty().party;
-        new ChestRoom(this.group)
+        //new ChestRoom(this.group)
         new FightLoop(new Fight(this.group, this.generateMonsterParty()), new FightMenu(new Fight(this.group, this.generateMonsterParty())))
-        console.log(Inventory.instance.items);
     }
 
     private generateMonsterParty(): Character[] {

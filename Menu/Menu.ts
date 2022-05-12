@@ -45,27 +45,3 @@ export abstract class Menu {
         return
     }
 }
-
-export class FightLoop extends Menu {
-    fight: Fight;
-    constructor(fight: Fight) {
-        super("Choissisez une action", [
-            "Basic attack",
-            "Special attack",
-            "Use item",])
-        this.fight = fight
-        while (this.fight.isFinished() != true) {
-            this.asking();
-        }
-    }
-    resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-        }
-    }
-}

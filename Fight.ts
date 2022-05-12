@@ -4,11 +4,10 @@ import { Menu } from "./Menu/Menu.ts";
 export class Fight {
     allyTeam: Character[];
     enemyTeam: Character[];
-
     constructor(
         allyTeam: Character[],
         enemyTeam: Character[],
-        
+
     ) {
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
@@ -16,17 +15,13 @@ export class Fight {
     isFinished(): boolean {
         let alive = [];
         let enemyAlive = [];
-        for (let i = 0; i < this.allyTeam.length; i++) {
-            alive.push(this.allyTeam[i].isDead);
-        }
-        if (alive = [true, true, true]) {
+
+        if (this.allyTeam.every(c => c.isDead)) {
             console.log("You loose");
             return true;
         }
-        for (let i = 0; i < this.enemyTeam.length; i++) {
-            enemyAlive.push(this.enemyTeam[i].isDead);
-        }
-        if (enemyAlive = [true, true, true]) {
+        if (
+            this.enemyTeam.every(c => c.isDead)) {
             console.log("Apeller suite du jeu ");
             return true;
         }
@@ -45,7 +40,7 @@ export class FightMenu extends Menu {
     fight: Fight;
     constructor(fight: Fight) {
         super("Choissisez quel adversaire attaquer!", [
-           //fight.enemyTeam.name[0],
+            // fight.enemyTeam.name[0],
             "enemie1",
             "enemie2",
         ])
@@ -57,6 +52,7 @@ export class FightMenu extends Menu {
         for (let i = 0; i < allCharacterOrderFight.length; i++) {
             if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
                 console.log(allCharacterOrderFight[i].name)
+
                 switch (choice) {
                     case "1":
                         allCharacterOrderFight[i].attack(this.fight.enemyTeam[0])
