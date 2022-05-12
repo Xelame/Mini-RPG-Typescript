@@ -32,7 +32,6 @@ export class Fight {
             c.currentHealth > 0
         );
         allCharacterOrder.sort((a, b) => b.speed - a.speed);
-        console.log(allCharacterOrder);
         return allCharacterOrder;
     }
 }
@@ -51,7 +50,6 @@ export class FightMenu extends Menu {
         let allCharacterOrderFight = this.fight.whichOrder()
         for (let i = 0; i < allCharacterOrderFight.length; i++) {
             if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
-                console.log(allCharacterOrderFight[i].name)
 
                 switch (choice) {
                     case "1":

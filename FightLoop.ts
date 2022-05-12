@@ -18,6 +18,10 @@ export class FightLoop extends Menu {
         }
     }
     resolve(choice: string | null): void {
+        let allCharacterOrderFight = this.fight.whichOrder()
+        for (let i = 0; i < allCharacterOrderFight.length; i++) {
+            if (allCharacterOrderFight[i].name.includes(this.fight.allyTeam[0].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[1].name) || allCharacterOrderFight[i].name.includes(this.fight.allyTeam[2].name)) {
+            console.log(allCharacterOrderFight[i].name )
                 switch (choice) {
                     case "1":
                         this.fightMenu.asking()
@@ -26,8 +30,11 @@ export class FightLoop extends Menu {
                         // allCharacterOrder[i].specialAttack()
                         break;
                     case "3":
-
                         break;
                 }
+            }else{
+              // allCharacterOrderFight[i].attackAlly()
             }
         }
+    }
+}
