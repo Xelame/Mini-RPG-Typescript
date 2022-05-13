@@ -1,3 +1,8 @@
+import { Character } from "../Characters/Character.ts";
+import { Fight } from "../Fight.ts"
+import { Inventory } from "../Inventory.ts";
+import { Item } from "../Items/Item.ts";
+
 export abstract class Menu {
 
     /**
@@ -42,3 +47,24 @@ export abstract class Menu {
         return
     }
 }
+
+export class Items extends Menu {
+    constructor(items : Item[]) {
+        super("Choisir une potion", items.map(i => i.emoji))
+        super.asking()
+    }
+    resolve(choice : string | null) : void {
+        switch(choice) {
+            case "1" :
+                break ;
+            case "2" :
+                break ;
+            case "3" :
+                break;
+            case "4" :
+                break; 
+        }
+    }
+}   
+
+console.log(new Items(Inventory.instance.items))
