@@ -1,5 +1,3 @@
-import { Character } from "../Characters/Character.ts";
-import { Fight } from "../Fight.ts"
 import { Inventory } from "../Inventory.ts";
 import { Item } from "../Items/Item.ts";
 
