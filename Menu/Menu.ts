@@ -1,5 +1,6 @@
 import { Character } from "../Characters/Character.ts";
 import { Fight } from "../Fight.ts"
+import { Inventory } from "../Inventory.ts";
 
 export abstract class Menu {
 
@@ -69,3 +70,32 @@ export class FightLoop extends Menu {
         }
     }
 }
+
+export class Item extends Menu {
+    items : Item[];
+    constructor(items : Item[]) {
+        super("Choisir une potion", [
+            "potion",
+            "Ether",
+            "Demi-étoile",
+            "morceaux d'étoile",
+        ])
+        while(this.items = items) {
+            super.asking()
+        }
+    }
+    resolve(choice : string | null) : void {
+        switch(choice) {
+            case "1" :
+                break ;
+            case "2" :
+                break ;
+            case "3" :
+                break;
+            case "4" :
+                break; 
+        }
+    }
+}
+
+console.log(new Item(Inventory.instance.items))
