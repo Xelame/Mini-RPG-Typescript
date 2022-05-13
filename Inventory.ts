@@ -27,6 +27,3 @@ export class Inventory {
         return this._items
     }
 }
-export class MenuInventory extends Menu{
-
-}
