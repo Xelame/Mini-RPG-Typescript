@@ -1,6 +1,7 @@
 import { Character } from "./Characters/Character.ts";
 import { Monstre } from "./Characters/Monster.ts";
-import { Menu } from "./Menu/Menu.ts";
+import { ActionMenu } from "./Menu/Action.ts"
+
 
 
 export class Fight {
@@ -22,7 +23,7 @@ export class Fight {
                 index++
             } else {
                 console.log(character.name + " is my turn");
-                new FightMenu(character, this.enemyTeam.filter(c=> !c.isDead), this.allyTeam);
+                new ActionMenu(character, this.enemyTeam.filter(c=> !c.isDead), this.allyTeam);
                 index++
             }
         }
@@ -42,86 +43,5 @@ export class Fight {
             return true;
         }
         return false;
-    }
-}
-
-
-export class FightMenu extends Menu {
-
-    character: Character;
-
-    enemies: Character[];
-
-    allies: Character[];
-
-    constructor(
-        character: Character,
-        enemies: Character[],
-        allies: Character[],
-    ) {
-        super("Choissisez une action", [
-            "Basic attack",
-            "Special attack",
-            "Use item",])
-        this.character = character;
-        this.enemies = enemies;
-        this.allies = allies
-        super.asking();
-    }
-
-    resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                this.character.attack(this.enemies[new CibleMenu(this.enemies).cible]);
-                break;
-            case "2":
-                if (!this.character.specialAttackOnAll(this.enemies)) {
-                    if (!this.character.specialAttackOnNothing()) {
-                        if (this.character.specialAttackOnEnnemy()) {
-                            this.character.specialAttackOnEnnemy(this.enemies[new CibleMenu(this.enemies).cible]);
-                        }
-                        if (this.character.specialAttackOnAlly()) {
-                            this.character.specialAttackOnAlly(this.allies[new CibleMenu(this.allies).cible]);
-                        } else {
-                            console.log("Nothing append");
-                            super.asking();
-                        }
-                    }
-                }
-                break;
-            case "3":
-
-                break;
-        }
-    }
-}
-
-
-export class CibleMenu extends Menu {
-
-    cible: number = -1;
-
-    constructor(ennemyTeam: Character[]) {
-        super("Choissisez quel adversaire attaquer!", ennemyTeam.map((c) => c.name))
-        super.asking();
-    }
-
-
-    resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                this.cible = 0;
-                break
-            case "2":
-                this.cible = 1;
-                break
-            case "3":
-                this.cible = 2;
-                break
-            default:
-                console.log("Veuillez choisir une option valide !");
-                super.asking()
-                break;
-        }
     }
 }
