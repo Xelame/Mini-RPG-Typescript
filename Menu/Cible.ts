@@ -5,8 +5,9 @@ export class CibleMenu extends Menu {
 
     cible: number = -1;
 
-    constructor(ennemyTeam: Character[]) {
-        super("Choissisez quel personnage cibler :", ennemyTeam.map((c) => c.name))
+    constructor(team: Character[]) {
+        console.log(team)
+        super("Choissisez quel personnage cibler :", team.map((c) => c.name))
         super.asking();
     }
 

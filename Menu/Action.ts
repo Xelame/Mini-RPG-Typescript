@@ -1,6 +1,7 @@
 import { Character } from "../Characters/Character.ts";
 import { Menu } from "./Menu.ts"
 import { CibleMenu } from "./Cible.ts"
+import { ItemMenu } from "./ItemSelection.ts";
 
 
 export class ActionMenu extends Menu {
@@ -22,7 +23,7 @@ export class ActionMenu extends Menu {
             "Use item",])
         this.character = character;
         this.enemies = enemies;
-        this.allies = allies
+        this.allies = allies;
         super.asking();
     }
 
@@ -39,7 +40,8 @@ export class ActionMenu extends Menu {
                         }
                         if (this.character.specialAttackOnAlly()) {
                             this.character.specialAttackOnAlly(this.allies[new CibleMenu(this.allies).cible]);
-                        } else {
+                        } 
+                        if (!this.character.specialAttackOnAlly() && !this.character.specialAttackOnEnnemy()) {
                             console.log("Nothing append");
                             super.asking();
                         }
@@ -47,7 +49,7 @@ export class ActionMenu extends Menu {
                 }
                 break;
             case "3":
-
+                new ItemMenu(this.allies);
                 break;
         }
     }
