@@ -1,12 +1,18 @@
 import { Character } from "./Characters/Character.ts";
 import { Monstre } from "./Characters/Monster.ts";
+import { Boss } from "./Characters/Boss.ts"
 import { Inventory } from "./Inventory.ts";
 import { AdventureParty } from "./Menu/AdventureParty.ts";
 import { Fight } from "./Fight.ts"
+import { ChestRoom } from "./Menu/ChestRoom.ts";
+import { FightRoom } from "./Menu/FightRoom.ts";
+import { Room } from "./Menu/iRoom.ts";
 
 class GameManager {
 
     public group: Character[] = [];
+
+    private exploration: Room[];
 
     private static _instance: GameManager;
 
@@ -46,9 +52,12 @@ class GameManager {
 
     public run(): void {
         this.group = new AdventureParty().party;
-        // new ChestRoom(this.group)
-        new Fight(this.group, this.generateMonsterParty())
-        console.log(Inventory.instance.items);
+        this.exploration = [new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, new Boss("Boss", '🐲', 100, 100, 10))];
+        if (this.group.some(character => !character.isDead)) {
+            console.log("C'est gagné !");
+        } else {
+            console.log("C'est perdu !");
+        }
     }
 }
 
