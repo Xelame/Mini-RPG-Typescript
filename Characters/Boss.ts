@@ -2,7 +2,7 @@ import { Character } from "./Character.ts";
 import { Monstre } from "./Monster.ts";
 
 
-class Boss extends Monstre {
+export class Boss extends Monstre {
 
     constructor(
         name : string, 

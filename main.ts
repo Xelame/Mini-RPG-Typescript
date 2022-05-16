@@ -1,9 +1,7 @@
 import { Character } from "./Characters/Character.ts";
-import { Monstre } from "./Characters/Monster.ts";
 import { Boss } from "./Characters/Boss.ts"
-import { Inventory } from "./Inventory.ts";
+import { Monstre } from "./Characters/Monster.ts";
 import { AdventureParty } from "./Menu/AdventureParty.ts";
-import { Fight } from "./Fight.ts"
 import { ChestRoom } from "./Menu/ChestRoom.ts";
 import { FightRoom } from "./Menu/FightRoom.ts";
 import { Room } from "./Menu/iRoom.ts";
@@ -12,7 +10,7 @@ class GameManager {
 
     public group: Character[] = [];
 
-    private exploration: Room[];
+    private exploration: Room[] = [];
 
     private static _instance: GameManager;
 
