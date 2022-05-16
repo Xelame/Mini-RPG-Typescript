@@ -14,35 +14,36 @@ export class Fight {
     ) {
         this.allyTeam = allyTeam;
         this.enemyTeam = enemyTeam;
-        while (!this.isFinished()){
-        for (let character of this.allCharacter) {
-            console.log(character.name + " is my turn");
+        let index = 0;
+        while (!this.isFinished()) {
+            let character = this.allCharacter[index%this.allCharacter.length];
+            console.log(character.name + " Turn");
             if (character instanceof Monstre) {
                 character.attackAlly(this.allyTeam);
-                console.log( character.name + " attaque")
+                console.log("%c"+ character.name + " attaque", "color: red" )
+                index++
             } else {
                 new FightMenu(character, this.enemyTeam);
+                index++
             }
         }
-    }
-    }
-    isFinished(): boolean {
-        if (this.allyTeam.every(c => c.isDead)) {
-            console.log("You loose");
-            return true;
-        }
-        if (
-            this.enemyTeam.every(c => c.isDead)) {
-            console.log("Apeller suite du jeu ");
-            return true;
-        }
-        return false;
     }
     public get allCharacter(): Character[] {
         return this.allyTeam.concat(this.enemyTeam).filter((c) => !c.isDead).sort((a, b) => b.speed - a.speed);
     }
-}
 
+    isFinished(): boolean {
+        if (this.enemyTeam.every((c) => c.isDead)) {
+            console.log("You win !");
+            return true;
+        }
+        if (this.allyTeam.every((c) => c.isDead)) {
+            console.log("You loose");
+            return true;
+        }
+        return false;
+    }
+}
 
 export class FightMenu extends Menu {
 
@@ -68,6 +69,8 @@ export class FightMenu extends Menu {
             case "1":
                 let cible = new CibleMenu(this.enemies).cible
                 this.character.attack(this.enemies[cible]);
+                console.log("%c"+ this.character.name + " attaque", "color: green" )
+                console.log("%c" + this.enemies[cible].currentHealth + "hp","color : yellow")
                 break;
             case "2":
 

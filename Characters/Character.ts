@@ -70,7 +70,7 @@ export abstract class Character {
      * @param target Cible du personnage
      */
     attack(target: Character): void {
-        const damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
+        let damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
         target.currentHealth = Math.max(this.currentHealth - damage, 0);
     }
 

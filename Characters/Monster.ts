@@ -30,7 +30,7 @@ export class Monstre extends Character {
             )[0];
             this.attack(target);
         } else {
-            this.attack(targets[Math.round(Math.random() * targets.length)]);
+            this.attack(targets[Math.round(Math.random() * (targets.length-1))]);
         }
     }
 }
