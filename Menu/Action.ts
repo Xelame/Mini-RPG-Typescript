@@ -6,11 +6,11 @@ import { ItemMenu } from "./ItemSelection.ts";
 
 export class ActionMenu extends Menu {
 
-    character: Character;
+    private character: Character;
 
-    enemies: Character[];
+    private enemies: Character[];
 
-    allies: Character[];
+    private allies: Character[];
 
     constructor(
         character: Character,
@@ -27,7 +27,7 @@ export class ActionMenu extends Menu {
         super.asking();
     }
 
-    resolve(choice: string | null): void {
+    protected resolve(choice: string | null): void {
         switch (choice) {
             case "1":
                 this.character.attack(this.enemies[new CibleMenu(this.enemies).cible]);

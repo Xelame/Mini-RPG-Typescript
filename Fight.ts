@@ -6,8 +6,8 @@ import { ActionMenu } from "./Menu/Action.ts"
 
 export class Fight {
 
-    allyTeam: Character[];
-    enemyTeam: Character[];
+    private allyTeam: Character[];
+    private enemyTeam: Character[];
 
     constructor(
         allyTeam: Character[],
@@ -17,13 +17,14 @@ export class Fight {
         this.enemyTeam = enemyTeam;
         let index = 0;
         while (!this.isFinished()) {
+            console.clear();
             this.affichage();
             let character = this.allCharacter[index%this.allCharacter.length];
             if (character instanceof Monstre) {
                 character.attackAlly(this.allyTeam.filter((c) => !c.isDead));
                 index++
             } else {
-                console.log(character.name + " is my turn");
+                console.log("Au Tour de " + character.name);
                 new ActionMenu(character, this.enemyTeam.filter(c=> !c.isDead), this.allyTeam);
                 index++
             }
@@ -34,7 +35,7 @@ export class Fight {
         return this.allyTeam.concat(this.enemyTeam).filter((c) => !c.isDead).sort((a, b) => b.speed - a.speed);
     }
 
-    isFinished(): boolean {
+    public isFinished(): boolean {
         if (this.enemyTeam.every((c) => c.isDead)) {
             console.log("You win !");
             return true;
@@ -46,7 +47,7 @@ export class Fight {
         return false;
     }
 
-    affichage(): void {
+    public affichage(): void {
         console.log("Ally team : ");
         for (let character of this.allyTeam) {
             let healthBar = ""

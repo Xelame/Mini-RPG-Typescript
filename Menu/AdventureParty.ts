@@ -9,7 +9,7 @@ import { Menu } from "./Menu.ts";
 
 export class AdventureParty extends Menu {
 
-    party: Character[] = [];
+    public party: Character[] = [];
     
 
     constructor() {
@@ -24,12 +24,9 @@ export class AdventureParty extends Menu {
         while (this.party.length < 3) {
             super.asking();
         }
-        if (this.party.length = 3){
-
-        }
     }
 
-    resolve(choice : string | null) : void {
+    protected resolve(choice : string | null) : void {
         console.clear()
         switch(choice) {
             case "1" : 

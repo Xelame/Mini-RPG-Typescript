@@ -14,7 +14,7 @@ export class Paladin extends Character {
      * Le paladin attaque tous les ennemies avec des dégats réduits
      * @param targets Groupes d'ennemis (généralement)
      */
-    specialAttackOnAll(targets: Character[]): boolean {
+    public specialAttackOnAll(targets: Character[]): boolean {
         for (let i = 0; i < targets.length; i++) {
             this.currentHealth = Math.max((this.physicalAttack - targets[i].physicalArmor) * 0.4, 0)
             Math.round(this.currentHealth)

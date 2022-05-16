@@ -2,37 +2,37 @@ export abstract class Character {
     /**
      * Nom du personnage
      */
-    name: string;
+    public name: string;
 
     /**
      * Représentation graphique du personnage
      */
-    readonly emoji: string;
+    public readonly emoji: string;
 
     /**
      * Puissance d'attaque physique
      */
-    physicalAttack: number;
+    protected readonly physicalAttack: number;
 
     /**
      * Puissance défensive physique
      */
-    physicalArmor: number;
+    public readonly physicalArmor: number;
 
     /**
      * Vitesse du personnage
      */
-    speed: number;
+    public readonly speed: number;
 
     /**
      * Point de vie maximum du personnage
      */
-    readonly maxHealth: number = 100;
+    public readonly maxHealth: number = 100;
 
     /**
      * Point de vie actuel du personnage
      */
-    currentHealth: number;
+    public currentHealth: number;
 
     /**
      * Notre personnage est créer vivant
@@ -70,7 +70,7 @@ export abstract class Character {
      * Fonction qui permet d'attaquer un autre personnage
      * @param target Cible du personnage
      */
-    attack(target: Character): void {
+    public attack(target: Character): void {
         const damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
         target.currentHealth = Math.max((target.currentHealth - damage), 0);
     }
@@ -79,7 +79,7 @@ export abstract class Character {
      * Fonction qui permet de soigner le personnage
      * @param percent Pourcentage de point de vie à récupérer
      */
-    heal(percent: number): void {
+    public heal(percent: number): void {
         const amount = Math.round(this.maxHealth * percent / 100);
         this.currentHealth = Math.min(this.currentHealth + amount, this.maxHealth);
     }
@@ -88,7 +88,7 @@ export abstract class Character {
      * Fonction qui permet de réssuciter le personnage avec un pourcentage de sa vie maximum
      * @param percent Pourcentage de point de vie à récupérer
      */
-    revive(percent: number): void {
+    public revive(percent: number): void {
         if (this.isDead) {
             this.currentHealth = Math.round(this.maxHealth * percent / 100);
         } else {
@@ -96,7 +96,7 @@ export abstract class Character {
         }
     }
 
-    specialAttackOnAll(targets: Character[]): boolean {
+    public specialAttackOnAll(targets: Character[]): boolean {
         return false
     }
 
@@ -104,7 +104,7 @@ export abstract class Character {
      * Soigne un allié
      * @param target Cible du soin du Character
      */
-    specialAttackOnAlly(target?: Character): boolean {
+    public specialAttackOnAlly(target?: Character): boolean {
         return false;
     }
 
@@ -112,15 +112,15 @@ export abstract class Character {
      * Fonction qui permet de lancer un sort
      * @param target Cible du sort
      */
-    specialAttackOnEnnemy(target?: Character) : boolean {
+    public specialAttackOnEnnemy(target?: Character) : boolean {
         return false
     }
 
-    specialAttackOnNothing() : boolean {
+    public specialAttackOnNothing() : boolean {
         return false
     }
 
-    attackAlly(targets: Character[]): void {
+    public attackAlly(targets: Character[]): void {
         return
     }
 }

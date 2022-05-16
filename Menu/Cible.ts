@@ -3,8 +3,8 @@ import { Menu } from "./Menu.ts";
 
 export class CibleMenu extends Menu {
 
-    cible: number = -1;
-    team: Character[];
+    public cible: number = -1;
+    private team: Character[];
 
     constructor(team: Character[]) {
         super("Choissisez quel personnage cibler :", team.map((c) => c.name))
@@ -13,7 +13,7 @@ export class CibleMenu extends Menu {
     }
 
 
-    resolve(choice: string | null): void {
+    protected resolve(choice: string | null): void {
         if (choice) {
             if (this.team[parseInt(choice) - 1] != undefined) {
                 this.cible = parseInt(choice) - 1;

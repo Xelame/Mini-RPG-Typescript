@@ -3,6 +3,9 @@ import { Item } from "./Item.ts";
 
 export class Ether extends Item {
 
+    /**
+     * ! Émoji représentant l'objet
+     */
     readonly emoji: string = '💊';
 
     constructor() {
@@ -12,7 +15,6 @@ export class Ether extends Item {
     public use(target: ManaUser): void {
         target.gainMana(this.gainPercent);
         this.alreadyUsed = true
-
     }
 
 }

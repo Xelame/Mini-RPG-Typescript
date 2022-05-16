@@ -7,12 +7,12 @@ export class Priest extends Character implements ManaUser {
     /**
      * Mana actuelle du Pretre
      */
-    currentMana = 10;
+    public currentMana = 10;
 
     /**
      * Mana max du Pretre
      */
-    maxMana = 10;
+    public readonly maxMana = 10;
 
     /**
      * Constructeur de notre classe Pretre
@@ -26,7 +26,7 @@ export class Priest extends Character implements ManaUser {
      * Soigne un allié
      * @param target Cible du soin du Pretre
      */
-    specialAttackOnAlly(target: Character | undefined): boolean {
+    public specialAttackOnAlly(target: Character | undefined): boolean {
         if (target == undefined) {
             return true;
         }

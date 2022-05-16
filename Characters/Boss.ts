@@ -13,7 +13,8 @@ export class Boss extends Monstre {
         ) {
         super(name, emoji,physicalAttack,physicalArmor,speed)
     }
-    specialAttackOnAll(targets : Character[]) : boolean {
+
+    public specialAttackOnAll(targets : Character[]) : boolean {
         const choiceAttack = Math.round(Math.random() * 100)
         if (choiceAttack < 30) {
             for (let i = 0; i < targets.length; i++) {
@@ -25,11 +26,12 @@ export class Boss extends Monstre {
         }
         return true
     } 
+
     /**
      * Attaque un allié au hasard ou celui avec le moins de point de vie
      * @param targets Liste des alliés
     */
-    attackAlly(targets: Character[]): void {
+    public attackAlly(targets: Character[]): void {
 
         const choice = Math.round(Math.random() * 100);
         if (choice <= 20) {
@@ -38,7 +40,7 @@ export class Boss extends Monstre {
             )[0];
             this.attack(target);
         } else {
-            this.attack(targets[Math.round(Math.random() * targets.length)]);
+            this.attack(targets[Math.round(Math.random() * (targets.length-1))]);
         }
     } 
 

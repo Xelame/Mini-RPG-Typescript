@@ -4,10 +4,16 @@ export abstract class Item {
     /**
      * Gain donné par l'objet en pourcentage
      */
-    gainPercent: number;
+    protected readonly gainPercent: number;
 
-    alreadyUsed: boolean = false;
+    /**
+     * ? Status de l'objet pour savoir si il a déjà été utilisé
+     */
+    public alreadyUsed: boolean = false;
 
+    /**
+     * ! Émoji représentant l'objet
+     */
     public readonly emoji: string = "";
 
     /**
@@ -18,6 +24,10 @@ export abstract class Item {
         this.gainPercent = gainPercent;
     }
 
+    /**
+     * Fonction voué a être écraser par les classes filles
+     * @param character Cible de l'objet
+     */
     use(character : Character | ManaUsed): void {
         return 
     }

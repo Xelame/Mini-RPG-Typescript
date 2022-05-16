@@ -8,13 +8,12 @@ export abstract class Menu {
     /**
      * La question à poser
      */
-    question: string;
+    protected readonly question: string;
 
     /**
      * La liste des différents choix possibles
      */
-    possibilities: string[];
-
+    protected readonly possibilities: string[];
 
     /**
      * Constructeur de notre classe Menu
@@ -30,7 +29,7 @@ export abstract class Menu {
     /**
      * Affiche la question à poser
      */
-    asking(): void {
+    protected asking(): void {
         console.log(this.question);
         for (let i = 1; i <= this.possibilities.length; i++) {
             console.log(`${i} - ${this.possibilities[i - 1]}`);
@@ -43,7 +42,7 @@ export abstract class Menu {
      * @param choice Le choix de l'utilisateur
      * @returns Resultat donnée en fonction du choix de l'utilisateur
      */
-    resolve(choice: string | null): void {
+    protected resolve(choice: string | null): void {
         return
     }
 }   

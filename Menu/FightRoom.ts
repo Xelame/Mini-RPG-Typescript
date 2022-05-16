@@ -6,10 +6,10 @@ import { Menu } from "./Menu.ts";
 
 export class FightRoom extends Menu implements Room {
 
-    type: string = "FightRoom";
+    public type: string = "FightRoom";
 
-    group: Character[];
-    enemies: Character[];
+    private group: Character[];
+    private enemies: Character[];
 
     constructor(group: Character[], enemies: Character[]) {
         super("Bienvenue dans une salle de combat, vous devez affronter (Appuyer sur entrée pour commencer): ", enemies.map(character => character.name));
@@ -18,7 +18,7 @@ export class FightRoom extends Menu implements Room {
         super.asking();
     }
 
-    resolve(choice: string | null): void {
+    protected resolve(choice: string | null): void {
         new Fight(this.group, this.enemies);
     }
 }

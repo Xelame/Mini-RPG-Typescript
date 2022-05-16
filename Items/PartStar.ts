@@ -4,7 +4,10 @@ import { Item } from "./Item.ts";
 
 export class PartStar extends Item {
 
-    readonly emoji: string = '✨';
+    /**
+     * ! Émoji représentant l'objet
+     */
+    public readonly emoji: string = '✨';
 
     constructor() {
         super(20);

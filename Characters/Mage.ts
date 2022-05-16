@@ -6,17 +6,17 @@ export class Mage extends Character implements Haki {
     /**
      * Mana actuelle du Mage
      */
-    currentMana: number = 10;
+    public currentMana: number = 10;
 
     /**
      * Mana max du Mage
      */
-    maxMana: number = 10;
+    public readonly maxMana: number = 10;
 
     /**
      * Puissance magique du Mage
      */
-    magicAttack: number;
+    private magicAttack: number;
 
     /**
      * Constructeur de notre Personnage Mage
@@ -31,7 +31,7 @@ export class Mage extends Character implements Haki {
      * Fonction qui permet de lancer un sort
      * @param target Cible du sort
      */
-    specialAttackOnEnnemy(target?: Character): boolean {
+    public specialAttackOnEnnemy(target?: Character): boolean {
         if (target == undefined) {
             return true;
         }
@@ -49,7 +49,7 @@ export class Mage extends Character implements Haki {
      * Récupère un pourcentage de mana
      * @param percent Pourcentage de mana récupérer
      */
-     gainMana(percent: number): void {
+    public gainMana(percent: number): void {
         this.currentMana = Math.min(this.currentMana + Math.round(this.maxMana*percent/100), this.maxMana);
     }
 }

@@ -6,7 +6,7 @@ export class Potion extends Item {
     /**
      * ! Émoji représentant l'objet
      */
-    readonly emoji = '🧉';
+    public readonly emoji = '🧉';
 
     /**
      * Constructeur de notre classe Potion qui donne un gain de vie de 50%

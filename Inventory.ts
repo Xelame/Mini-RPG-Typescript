@@ -1,9 +1,7 @@
-import { Mage } from "./Characters/Mage.ts";
 import { Ether } from "./Items/Ether.ts";
 import { Item } from "./Items/Item.ts";
 import { PartStar } from "./Items/PartStar.ts";
 import { Potion } from "./Items/Potion.ts";
-
 
 export class Inventory {
     private static _instance: Inventory;
@@ -15,9 +13,11 @@ export class Inventory {
     }
 
     private constructor() {}
+
     public addItem(item : Item) {
         this._items.push(item)
     }
+    
     private _items: Array<Item> = [new Potion, new Potion, new Ether, new PartStar];
 
 

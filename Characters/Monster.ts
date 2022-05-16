@@ -22,7 +22,7 @@ export class Monstre extends Character {
      * Attaque un allié au hasard ou celui avec le moins de point de vie
      * @param targets Liste des alliés
      */
-    attackAlly(targets: Character[]): void {
+    public attackAlly(targets: Character[]): void {
         const choice = Math.round(Math.random() * 100);
         if (choice <= 20) {
             const target = targets.sort((a, b) =>

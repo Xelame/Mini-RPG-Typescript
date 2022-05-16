@@ -9,9 +9,9 @@ import { Menu } from "./Menu.ts";
 
 export class ChestRoom extends Menu implements Room {
 
-    type: string = "ChestRoom";
+    public type: string = "ChestRoom";
 
-    group: Character[];
+    private group: Character[];
 
     constructor(group: Character[]) {
         super("Bienvenue dans une salle au trésors 🧰, mais ces derniers sont peut être piègé, choisissez un volontaire : ", group.map(character => character.name));
@@ -19,7 +19,7 @@ export class ChestRoom extends Menu implements Room {
         super.asking();
     }
 
-    resolve(choice: string | null): void {
+    protected resolve(choice: string | null): void {
         const openChest = (characterChoosen: Character): void => {
             if (!characterChoosen.isDead) {
                 let blessed = Math.round(Math.random() * 100);

@@ -16,9 +16,9 @@ export class Rogue extends Character {
     }
 
     /**
-     * Le Voleur vole un item (une chance de rien)
+     * Le Voleur vole un item (une chance de rien volé)
      */
-    specialAttackOnNothing() : boolean {
+    public specialAttackOnNothing() : boolean {
         const steal = Math.round(Math.random() * 100);
         if (steal < 5) {
             Inventory.instance.addItem(new HalfStar)
