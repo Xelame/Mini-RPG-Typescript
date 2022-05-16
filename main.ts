@@ -50,7 +50,7 @@ class GameManager {
 
     public run(): void {
         this.group = new AdventureParty().party;
-        this.exploration = [new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, new Boss("Boss", '🐲', 100, 100, 10))];
+        this.exploration = [new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, this.generateMonsterParty()), new ChestRoom(this.group), new FightRoom(this.group, [new Boss("Boss", '🐲', 100, 100, 10)])];
         if (this.group.some(character => !character.isDead)) {
             console.log("C'est gagné !");
         } else {
