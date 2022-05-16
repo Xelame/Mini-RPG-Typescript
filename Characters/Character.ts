@@ -32,7 +32,7 @@ export abstract class Character {
     /**
      * Point de vie actuel du personnage
      */
-    currentHealth: number = 100;
+    currentHealth: number;
 
     /**
      * Notre personnage est créer vivant
@@ -63,6 +63,7 @@ export abstract class Character {
         this.physicalAttack = physicalAttack;
         this.physicalArmor = physicalArmor;
         this.speed = speed;
+        this.currentHealth = this.maxHealth;
     }
 
     /**
@@ -70,8 +71,8 @@ export abstract class Character {
      * @param target Cible du personnage
      */
     attack(target: Character): void {
-        let damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
-        target.currentHealth = Math.max(this.currentHealth - damage, 0);
+        const damage = Math.max(this.physicalAttack - target.physicalArmor, 1);
+        target.currentHealth = Math.max((target.currentHealth - damage), 0);
     }
 
     /**
@@ -95,12 +96,32 @@ export abstract class Character {
         }
     }
 
-    specialAttack(target: Character | Character[]): void {
-        return
+    specialAttackOnAll(targets: Character[]): boolean {
+        return false
+    }
+
+    /**
+     * Soigne un allié
+     * @param target Cible du soin du Character
+     */
+    specialAttackOnAlly(target?: Character): boolean {
+        return false;
+    }
+
+    /**
+     * Fonction qui permet de lancer un sort
+     * @param target Cible du sort
+     */
+    specialAttackOnEnnemy(target?: Character) : boolean {
+        return false
+    }
+
+    specialAttackOnNothing() : boolean {
+        return false
     }
 
     attackAlly(targets: Character[]): void {
         return
     }
 }
- 
+

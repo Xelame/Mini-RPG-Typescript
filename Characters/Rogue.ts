@@ -18,7 +18,7 @@ export class Rogue extends Character {
     /**
      * Le Voleur vole un item (une chance de rien)
      */
-    specialAttack() : void {
+    specialAttackOnNothing() : boolean {
         const steal = Math.round(Math.random() * 100);
         if (steal < 5) {
             Inventory.instance.addItem(new HalfStar)
@@ -35,5 +35,6 @@ export class Rogue extends Character {
         } else {
             console.log("Rien n'est volé")
         }
+        return true
     }
 }

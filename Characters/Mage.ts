@@ -31,7 +31,10 @@ export class Mage extends Character implements Haki {
      * Fonction qui permet de lancer un sort
      * @param target Cible du sort
      */
-    specialAttack(target: Character): void {
+    specialAttackOnEnnemy(target?: Character): boolean {
+        if (target == undefined) {
+            return true;
+        }
         if (this.currentMana) {
             target.currentHealth = Math.max(
                 target.currentHealth - this.magicAttack,
@@ -39,6 +42,7 @@ export class Mage extends Character implements Haki {
             );
             this.currentMana--;
         }
+        return true
     }
 
     /**

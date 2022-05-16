@@ -26,11 +26,15 @@ export class Priest extends Character implements ManaUser {
      * Soigne un allié
      * @param target Cible du soin du Pretre
      */
-    specialAttack(target: Character): void {
+    specialAttackOnAlly(target: Character | undefined): boolean {
+        if (target == undefined) {
+            return true;
+        }
         if (this.currentMana) {
             target.heal(25);
             this.currentMana--;
         }
+        return true;
     }
 
     /**

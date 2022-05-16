@@ -1,3 +1,8 @@
+import { Character } from "../Characters/Character.ts";
+import { Inventory } from "../Inventory.ts";
+import { Item } from "../Items/Item.ts";
+import { CibleMenu } from "./Cible.ts";
+
 export abstract class Menu {
 
     /**
@@ -41,4 +46,4 @@ export abstract class Menu {
     resolve(choice: string | null): void {
         return
     }
-}
+}   

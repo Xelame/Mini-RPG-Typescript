@@ -11,7 +11,7 @@ class Boss extends Character {
         ) {
         super(name, emoji,physicalAttack,physicalArmor,speed)
     }
-    specialAttack(targets : Character[]) : void {
+    specialAttackOnAll(targets : Character[]) : boolean {
         const choiceAttack = Math.round(Math.random() * 100)
         if (choiceAttack < 30) {
             for (let i = 0; i < targets.length; i++) {
@@ -21,6 +21,7 @@ class Boss extends Character {
         } else {
             this.attackAlly(targets)
         }
+        return true
     } 
     /**
      * Attaque un allié au hasard ou celui avec le moins de point de vie

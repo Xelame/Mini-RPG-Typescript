@@ -1,6 +1,7 @@
 import { Character } from "./Characters/Character.ts";
 import { Monstre } from "./Characters/Monster.ts";
-import { Menu } from "./Menu/Menu.ts";
+import { ActionMenu } from "./Menu/Action.ts"
+
 
 
 export class Fight {
@@ -17,17 +18,17 @@ export class Fight {
         let index = 0;
         while (!this.isFinished()) {
             let character = this.allCharacter[index%this.allCharacter.length];
-            console.log(character.name + " Turn");
             if (character instanceof Monstre) {
                 character.attackAlly(this.allyTeam);
-                console.log("%c"+ character.name + " attaque", "color: red" )
                 index++
             } else {
-                new FightMenu(character, this.enemyTeam);
+                console.log(character.name + " Turn");
+                new ActionMenu(character, this.enemyTeam.filter(c=> !c.isDead), this.allyTeam);
                 index++
             }
         }
     }
+
     public get allCharacter(): Character[] {
         return this.allyTeam.concat(this.enemyTeam).filter((c) => !c.isDead).sort((a, b) => b.speed - a.speed);
     }
@@ -42,72 +43,5 @@ export class Fight {
             return true;
         }
         return false;
-    }
-}
-
-export class FightMenu extends Menu {
-
-    character: Character;
-
-    enemies: Character[];
-
-    constructor(
-        character: Character,
-        allCharacter: Character[],
-    ) {
-        super("Choissisez une action", [
-            "Basic attack",
-            "Special attack",
-            "Use item",])
-        this.character = character;
-        this.enemies = allCharacter;
-        super.asking();
-    }
-
-    resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                let cible = new CibleMenu(this.enemies).cible
-                this.character.attack(this.enemies[cible]);
-                console.log("%c"+ this.character.name + " attaque", "color: green" )
-                console.log("%c" + this.enemies[cible].currentHealth + "hp","color : yellow")
-                break;
-            case "2":
-
-                break;
-            case "3":
-
-                break;
-        }
-    }
-}
-
-
-export class CibleMenu extends Menu {
-
-    cible: number = -1;
-
-    constructor(ennemyTeam: Character[]) {
-        super("Choissisez quel adversaire attaquer!", ennemyTeam.map((c) => c.name))
-        super.asking();
-    }
-
-
-    resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                this.cible = 0;
-                break
-            case "2":
-                this.cible = 1;
-                break
-            case "3":
-                this.cible = 2;
-                break
-            default:
-                console.log("Veuillez choisir une option valide !");
-                super.asking()
-                break;
-        }
     }
 }
