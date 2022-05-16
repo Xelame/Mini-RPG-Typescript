@@ -29,16 +29,16 @@ class GameManager {
             let luck = Math.floor(Math.random() * 4)
             switch (luck) {
                 case 0:
-                    monsterParty.push(new Monstre("Vampire", '🧛', 50, 40, 5));
+                    monsterParty.push(new Monstre("Vampire", '🧛', 50, 0, 5));
                     break;
                 case 1:
-                    monsterParty.push(new Monstre("Ogre", '👹', 30, 60, 2));
+                    monsterParty.push(new Monstre("Ogre", '👹', 30, 0, 2));
                     break;
                 case 2:
                     monsterParty.push(new Monstre("Fantôme", '👻', 40, 20, 8));
                     break;
                 case 3:
-                    monsterParty.push(new Monstre("Zombie",'🧟', 40, 40, 3));
+                    monsterParty.push(new Monstre("Zombie",'🧟', 40, 0, 3));
                     break;
                 case 4:
                     monsterParty.push(new Monstre("Squelette", '💀', 40, 20, 4));

@@ -14,7 +14,7 @@ export class ChestRoom extends Menu implements Room {
     group: Character[];
 
     constructor(group: Character[]) {
-        super("Bienvenue dans une salle au trésors, mais ces derniers sont peut être piègé, choisissez un volontaire : ", group.map(character => character.name));
+        super("Bienvenue dans une salle au trésors 🧰, mais ces derniers sont peut être piègé, choisissez un volontaire : ", group.map(character => character.name));
         this.group = group;
         super.asking();
     }

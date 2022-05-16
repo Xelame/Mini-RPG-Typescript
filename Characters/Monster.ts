@@ -28,9 +28,11 @@ export class Monstre extends Character {
             const target = targets.sort((a, b) =>
                 a.currentHealth - b.currentHealth
             )[0];
+            console.log(target)
             this.attack(target);
         } else {
-            this.attack(targets[Math.round(Math.random() * (targets.length-1))]);
+            let luck = Math.round(Math.random() * (targets.length-1))
+            this.attack(targets[luck]);
         }
     }
 }

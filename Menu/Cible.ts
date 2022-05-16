@@ -4,29 +4,26 @@ import { Menu } from "./Menu.ts";
 export class CibleMenu extends Menu {
 
     cible: number = -1;
+    team: Character[];
 
     constructor(team: Character[]) {
-        console.log(team)
         super("Choissisez quel personnage cibler :", team.map((c) => c.name))
+        this.team = team;
         super.asking();
     }
 
 
     resolve(choice: string | null): void {
-        switch (choice) {
-            case "1":
-                this.cible = 0;
-                break
-            case "2":
-                this.cible = 1;
-                break
-            case "3":
-                this.cible = 2;
-                break
-            default:
-                console.log("Veuillez choisir une option valide !");
-                super.asking()
-                break;
+        if (choice) {
+            if (this.team[parseInt(choice) - 1] != undefined) {
+                this.cible = parseInt(choice) - 1;
+            } else {
+                console.log("Faites un choix valide !");
+                super.asking();
+            }
+        } else {
+            console.log("Vous n'avez pas choisi de cible");
+            super.asking()
         }
     }
 }

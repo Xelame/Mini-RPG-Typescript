@@ -17,9 +17,10 @@ export class Fight {
         this.enemyTeam = enemyTeam;
         let index = 0;
         while (!this.isFinished()) {
+            this.affichage();
             let character = this.allCharacter[index%this.allCharacter.length];
             if (character instanceof Monstre) {
-                character.attackAlly(this.allyTeam);
+                character.attackAlly(this.allyTeam.filter((c) => !c.isDead));
                 index++
             } else {
                 console.log(character.name + " is my turn");
@@ -43,5 +44,32 @@ export class Fight {
             return true;
         }
         return false;
+    }
+
+    affichage(): void {
+        console.log("Ally team : ");
+        for (let character of this.allyTeam) {
+            let healthBar = ""
+            let voidBar = ""
+            for (let i = 0; i < character.currentHealth; i++) {
+                healthBar += "█"
+            }
+            for (let i = 0; i < (character.maxHealth - character.currentHealth); i++) {
+                voidBar += "█"
+            }
+            console.log(character.emoji + ` %c${healthBar}` + `%c${voidBar}`, "color: green", "color: red");
+        }
+        console.log("Enemy team : ");
+        for (let character of this.enemyTeam.filter((c) => !c.isDead)) {
+            let healthBar = ""
+            let voidBar = ""
+            for (let i = 0; i < character.currentHealth; i++) {
+                healthBar += "█"
+            }
+            for (let i = 0; i < (character.maxHealth - character.currentHealth); i++) {
+                voidBar += "█"
+            }
+            console.log(character.emoji + ` %c${healthBar}` + `%c${voidBar}`, "color: green", "color: red");
+        }
     }
 }
