@@ -1,6 +1,8 @@
 import { Character } from "./Character.ts";
+import { Monstre } from "./Monster.ts";
 
-class Boss extends Character {
+
+class Boss extends Monstre {
 
     constructor(
         name : string, 
