@@ -7,12 +7,12 @@ export class Priest extends Character implements ManaUser {
     /**
      * Mana actuelle du Pretre
      */
-    public currentMana = 10;
+    public currentMana: number = 10;
 
     /**
      * Mana max du Pretre
      */
-    public readonly maxMana = 10;
+    public readonly maxMana: number = 10;
 
     /**
      * Constructeur de notre classe Pretre
