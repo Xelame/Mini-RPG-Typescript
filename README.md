@@ -66,7 +66,7 @@ You need to install Deno in any IDE of your choice :
    ```
 2. Go in the folder and run the gameManager file
    ```
-   deno run gameManager.ts
+   deno run main.ts
    ```
 3. Play !
    ```
