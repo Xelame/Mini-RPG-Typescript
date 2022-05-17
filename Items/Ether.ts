@@ -6,7 +6,7 @@ export class Ether extends Item {
     /**
      * ! Émoji représentant l'objet
      */
-    readonly emoji: string = '💊';
+    public readonly emoji: string = '💊';
 
     constructor() {
         super(30);
