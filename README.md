@@ -64,7 +64,7 @@ You need to install Deno in any IDE of your choice :
    ```
    https://git.ytrack.learn.ynov.com/NRIVALANT/poo-project.git
    ```
-2. Go in the folder and run the gameManager file
+2. Go in the folder and run the main file
    ```
    deno run main.ts
    ```
